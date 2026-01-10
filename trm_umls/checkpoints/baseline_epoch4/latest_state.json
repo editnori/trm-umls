@@ -1,0 +1,18 @@
+{
+  "epoch": 4,
+  "best_epoch": 4,
+  "best_emb_mean_sim": 0.4983382857339457,
+  "train_metrics": {
+    "total_loss": 0.7760747881098227,
+    "emb_loss": 1.2922670495781032,
+    "hard_emb_loss": 0.0,
+    "assert_loss": 0.0018495792094406418,
+    "subj_loss": 0.0016808545968325977
+  },
+  "val_metrics": {
+    "emb_mean_sim": 0.4983382857339457,
+    "emb_median_sim": 0.5097737014293671,
+    "assert_accuracy": 1.0,
+    "subj_accuracy": 1.0
+  }
+}

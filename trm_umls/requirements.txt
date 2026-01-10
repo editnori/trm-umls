@@ -1,0 +1,15 @@
+# TRM-UMLS core requirements.
+#
+# Install PyTorch separately (CPU or CUDA build), then:
+#   pip install -r requirements.txt
+
+numpy>=1.24.0
+tqdm>=4.65.0
+pydantic>=2.0.0
+
+transformers>=4.40.0
+sentence-transformers>=2.2.0
+jinja2>=3.1.0
+
+faiss-cpu>=1.7.4
+# faiss-gpu  # optional, if you have a compatible CUDA build

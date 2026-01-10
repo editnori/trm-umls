@@ -1,0 +1,5042 @@
+[
+  {
+    "text": "Past medical history significant for Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with heart failure in 2020.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with diabetes in 2020.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with cancer in 2020.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with asthma in 2020.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with heart disease in 2020.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with epilepsy in 2020.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with anxiety in 2020.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with COPD in 2020.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with arthritis in 2020.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with depression in 2020.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with coronary artery disease in 2020.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with Parkinson's disease in 2020.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with Alzheimer's disease in 2020.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with lung cancer in 2020.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with hypertension in 2020.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active hypertension.",
+    "entity": "hypertension",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for kidney disease.",
+    "entity": "kidney disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports asthma.",
+    "entity": "asthma",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of cancer.",
+    "entity": "cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with breast cancer in 2020.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Paternal history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with dementia in 2020.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Parent with colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with stroke in 2020.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has lung cancer.",
+    "entity": "lung cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of heart disease.",
+    "entity": "heart disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has epilepsy.",
+    "entity": "epilepsy",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "He has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of depression.",
+    "entity": "depression",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for dementia.",
+    "entity": "dementia",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active diabetes.",
+    "entity": "diabetes",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has stroke.",
+    "entity": "stroke",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known kidney disease.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes COPD.",
+    "entity": "COPD",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has COPD.",
+    "entity": "COPD",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with stroke.",
+    "entity": "stroke",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of breast cancer.",
+    "entity": "breast cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has kidney disease.",
+    "entity": "kidney disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Colleague has colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has colon cancer.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has colon cancer.",
+    "entity": "colon cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Roommate diagnosed with Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with dementia.",
+    "entity": "dementia",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has depression.",
+    "entity": "depression",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has lung cancer.",
+    "entity": "lung cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father died of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of diabetes.",
+    "entity": "diabetes",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with kidney disease in 2020.",
+    "entity": "kidney disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of epilepsy.",
+    "entity": "epilepsy",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Exposed to individual with hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has hypertension.",
+    "entity": "hypertension",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of heart failure.",
+    "entity": "heart failure",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with epilepsy.",
+    "entity": "epilepsy",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Spouse has asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history of heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had diabetes.",
+    "entity": "diabetes",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "FH: heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Partner has heart failure.",
+    "entity": "heart failure",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has heart disease.",
+    "entity": "heart disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Donor history of hypertension.",
+    "entity": "hypertension",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sibling with cancer.",
+    "entity": "cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with colon cancer in 2020.",
+    "entity": "colon cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Currently being treated for heart disease.",
+    "entity": "heart disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Brother has dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Family history significant for Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient has a history of anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Strong family history of dementia.",
+    "entity": "dementia",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother died of colon cancer.",
+    "entity": "colon cancer",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Father has arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Medical history includes stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Mother has asthma.",
+    "entity": "asthma",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "PMH: cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Healthcare worker with lung cancer.",
+    "entity": "lung cancer",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with arthritis.",
+    "entity": "arthritis",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandmother had arthritis.",
+    "entity": "arthritis",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Friend died of anxiety.",
+    "entity": "anxiety",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Grandfather had heart failure.",
+    "entity": "heart failure",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "She has stroke.",
+    "entity": "stroke",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Contact with person who has asthma.",
+    "entity": "asthma",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Caregiver has arthritis.",
+    "entity": "arthritis",
+    "label": "OTHER",
+    "source": "synthetic"
+  },
+  {
+    "text": "Multiple family members with Parkinson's disease.",
+    "entity": "Parkinson's disease",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with cancer.",
+    "entity": "cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of breast cancer.",
+    "entity": "breast cancer",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "The patient was diagnosed with anxiety.",
+    "entity": "anxiety",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Past medical history significant for depression.",
+    "entity": "depression",
+    "label": "PATIENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Maternal history of anxiety.",
+    "entity": "anxiety",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Sister has COPD.",
+    "entity": "COPD",
+    "label": "FAMILY",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient reports Alzheimer's disease.",
+    "entity": "Alzheimer's disease",
+    "label": "PATIENT",
+    "source": "synthetic"
+  }
+]

@@ -1,0 +1,38 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Credentials (local only)
+LambdaLabsapi.txt
+Openai.pem
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local checkpoints / artifacts
+trm_umls/checkpoints/*.pt
+trm_umls/checkpoints/**/*.pt
+trm_umls/checkpoints/latest_state.json
+trm_umls/checkpoints/latest_v2_state.json
+
+# Large generated data
+trm_umls/data/umls/
+trm_umls/data/embeddings/
+trm_umls/data/embeddings
+trm_umls/data/embeddings_*/
+
+# Local dataset dump (large)
+KidneyStone_SDOH.script
+
+# Local logs
+trm_umls/runs/
+
+# Teacher labels
+trm_umls/data/teacher_labels/
+
+# Silver labels (derived from clinical notes)
+trm_umls/data/silver_labels/

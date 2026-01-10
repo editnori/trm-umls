@@ -1,0 +1,4682 @@
+[
+  {
+    "text": "Ruled out COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "pulmonary embolism absent.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "anemia is uncertain.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "asthma is uncertain.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "pneumonia is uncertain.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "congestive heart failure is uncertain.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "diabetes is present.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "deep vein thrombosis is uncertain.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "atrial fibrillation is present.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "acute kidney injury absent.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "congestive heart failure is present.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "deep vein thrombosis absent.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypertension absent.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "obesity is present.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "dementia is uncertain.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "heart failure absent.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "atrial fibrillation is uncertain.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "atrial fibrillation absent.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "myocardial infarction absent.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "myocardial infarction is present.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "diabetes is uncertain.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "depression absent.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "diabetes absent.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "pulmonary embolism is uncertain.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "myocardial infarction is uncertain.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "asthma is present.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "acute kidney injury is present.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "pneumonia is present.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "COPD is uncertain.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "deep vein thrombosis is present.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "arthritis is uncertain.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "osteoporosis is uncertain.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "pneumonia absent.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "dementia absent.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "sepsis absent.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "heart failure is uncertain.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "arthritis is present.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "anxiety is present.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypertension is uncertain.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "obesity is uncertain.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "sepsis is present.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "heart failure is present.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypothyroidism is present.",
+    "entity": "hypothyroidism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "congestive heart failure absent.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "hyperlipidemia absent.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "COPD is present.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hyperlipidemia is uncertain.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "anxiety absent.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "depression is present.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "coronary artery disease absent.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "obesity absent.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider diabetes.",
+    "entity": "diabetes",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable anemia.",
+    "entity": "anemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "coronary artery disease is uncertain.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "urinary tract infection is uncertain.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected depression.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypothyroidism is uncertain.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely hypertension.",
+    "entity": "hypertension",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider obesity.",
+    "entity": "obesity",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "sepsis is uncertain.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "dementia is present.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "anemia is present.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "urinary tract infection is present.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable dementia.",
+    "entity": "dementia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "depression is uncertain.",
+    "entity": "depression",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypothyroidism absent.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies depression.",
+    "entity": "depression",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hyperlipidemia is present.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of asthma.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of heart failure.",
+    "entity": "heart failure",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "arthritis absent.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "stroke is present.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed pneumonia.",
+    "entity": "pneumonia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active anemia.",
+    "entity": "anemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Cannot exclude pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "acute kidney injury is uncertain.",
+    "entity": "acute kidney injury",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No pneumonia.",
+    "entity": "pneumonia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active stroke.",
+    "entity": "stroke",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible anxiety.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "COPD absent.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Probable stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "osteoporosis absent.",
+    "entity": "osteoporosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed hypertension.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible stroke.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible COPD.",
+    "entity": "COPD",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "anemia absent.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient presents with sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for depression.",
+    "entity": "depression",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "stroke absent.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "chronic kidney disease is present.",
+    "entity": "chronic kidney disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient denies urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Ruled out hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without COPD.",
+    "entity": "COPD",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient does not have deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected chronic kidney disease.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "coronary artery disease is present.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible deep vein thrombosis.",
+    "entity": "deep vein thrombosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of COPD.",
+    "entity": "COPD",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely asthma.",
+    "entity": "asthma",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed arthritis.",
+    "entity": "arthritis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No signs of acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for stroke.",
+    "entity": "stroke",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Possible hypothyroidism.",
+    "entity": "hypothyroidism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "stroke is uncertain.",
+    "entity": "stroke",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for atrial fibrillation.",
+    "entity": "atrial fibrillation",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "hypertension is present.",
+    "entity": "hypertension",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider sepsis.",
+    "entity": "sepsis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No evidence of hypertension.",
+    "entity": "hypertension",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies anemia.",
+    "entity": "anemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for obesity.",
+    "entity": "obesity",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely osteoporosis.",
+    "entity": "osteoporosis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of coronary artery disease.",
+    "entity": "coronary artery disease",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "osteoporosis is present.",
+    "entity": "osteoporosis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider heart failure.",
+    "entity": "heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "pulmonary embolism is present.",
+    "entity": "pulmonary embolism",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Denies dementia.",
+    "entity": "dementia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No diabetes.",
+    "entity": "diabetes",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "urinary tract infection absent.",
+    "entity": "urinary tract infection",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Known dementia.",
+    "entity": "dementia",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "No hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for sepsis.",
+    "entity": "sepsis",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has asthma.",
+    "entity": "asthma",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Consider hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "History of anxiety.",
+    "entity": "anxiety",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Evidence of congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has obesity.",
+    "entity": "obesity",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely pneumonia.",
+    "entity": "pneumonia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "No anxiety.",
+    "entity": "anxiety",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Confirmed diabetes.",
+    "entity": "diabetes",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "May have arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Active heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "chronic kidney disease absent.",
+    "entity": "chronic kidney disease",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Questionable pulmonary embolism.",
+    "entity": "pulmonary embolism",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Likely urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Without sepsis.",
+    "entity": "sepsis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "chronic kidney disease is uncertain.",
+    "entity": "chronic kidney disease",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out myocardial infarction.",
+    "entity": "myocardial infarction",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected arthritis.",
+    "entity": "arthritis",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out hyperlipidemia.",
+    "entity": "hyperlipidemia",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "asthma absent.",
+    "entity": "asthma",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Negative for arthritis.",
+    "entity": "arthritis",
+    "label": "ABSENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Patient has heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for heart failure.",
+    "entity": "heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "anxiety is uncertain.",
+    "entity": "anxiety",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Positive for congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Diagnosed with acute kidney injury.",
+    "entity": "acute kidney injury",
+    "label": "PRESENT",
+    "source": "synthetic"
+  },
+  {
+    "text": "Suspected urinary tract infection.",
+    "entity": "urinary tract infection",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  },
+  {
+    "text": "Rule out congestive heart failure.",
+    "entity": "congestive heart failure",
+    "label": "POSSIBLE",
+    "source": "synthetic"
+  }
+]
