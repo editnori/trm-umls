@@ -174,11 +174,11 @@ The span proposal teachers are used only to create silver training data. The emb
 
 Most of the runtime weight is in the index and its metadata arrays, not in the TRM checkpoint. The main offline artifacts are listed below.
 
-The UMLS concept store lives in `trm_umls/data/umls/`. The key file is `tui_mappings.json`, which maps each CUI to its list of semantic type identifiers. Additional files hold preferred terms and synonyms produced by `extract_umls.py`. The raw UMLS dumps are not included in the repository because they are large and come with licensing constraints.
+On your machine, the UMLS concept store is written to `trm_umls/data/umls/` after running `trm_umls/scripts/extract_umls.py` against a licensed UMLS release. The key file is `tui_mappings.json`, which maps each CUI to its list of semantic type identifiers. Additional files hold preferred terms and synonyms. These derived UMLS files are not committed to Git for licensing and size reasons.
 
-The teacher embedding index uses SapBERT with 768-dimensional embeddings. The index covers 1,164,238 concepts.
+The teacher embedding index is also built locally. It uses SapBERT with 768-dimensional embeddings and covers 1,164,238 concepts. It is not committed because it is large.
 
-| artifact | size |
+| artifact (local, not committed) | size |
 |---|---:|
 | full teacher embeddings + index | 6.9 GB |
 | UMLS extracted JSON | 631 MB |
@@ -542,7 +542,7 @@ cd trm_umls
 pip install -r requirements.txt
 ```
 
-Required artifacts:
+Required artifacts (local, not committed):
 - `trm_umls/checkpoints/model.pt`
 - `trm_umls/data/embeddings/umls_flat.index`
 - `trm_umls/data/embeddings/embedding_metadata.json`
