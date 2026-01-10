@@ -565,6 +565,22 @@ python3 trm_umls/pipeline.py --text "Patient denies HTN. Family history of DM."
 python3 trm_umls/pipeline.py --text "Patient denies HTN." --json
 ```
 
+**web ui (highlighted spans + filtering)**
+
+Start the local api (loads the model + index once):
+```bash
+python3 -m trm_umls.api
+```
+
+In a second terminal, start the vite ui:
+```bash
+cd ui
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`. The ui sends note text to the local api only.
+
 **Batch a notes directory + export to xlsx (review workflow):**
 ```bash
 python3 trm_umls/scripts/eval_notes_dir.py \

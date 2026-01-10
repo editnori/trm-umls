@@ -36,3 +36,8 @@ trm_umls/data/teacher_labels/
 
 # Silver labels (derived from clinical notes)
 trm_umls/data/silver_labels/
+
+# Frontend
+ui/node_modules/
+ui/dist/
+ui/.vite/
