@@ -83,6 +83,9 @@ app = FastAPI(title="trm-umls api", version="0.1")
 
 app.add_middleware(
     CORSMiddleware,
+    # Allow local dev servers on localhost/127.0.0.1, even if the port changes (5173, 5174, etc.).
+    # This avoids "OPTIONS /extract 400" preflight failures when Vite picks a different port.
+    allow_origin_regex=os.getenv("TRM_UI_ORIGIN_REGEX", r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$"),
     allow_origins=_env_list("TRM_UI_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"),
     allow_methods=["*"],
     allow_headers=["*"],
@@ -188,4 +191,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
