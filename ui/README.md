@@ -1,12 +1,28 @@
 # trm-umls ui
 
-This is a local viewer for `trm_umls/` that:
+A local viewer for clinical concept extraction with entity highlighting and filtering.
 
-- uploads one or more note files (kept in memory)
-- calls the local api to extract spans → CUIs
-- renders highlighted mentions plus a table with filters
+## Features
 
-## run
+- **Three-pane layout**: Input controls | Document with entity highlighting | Results table
+- **Entity highlighting**: Underline-style highlighting with inline semantic group badges
+- **Original ↔ Preferred toggle**: Switch between raw spans and standardized UMLS terminology
+- **Filters**: Filter by assertion (PRESENT/ABSENT/POSSIBLE) and semantic group (DISO, CHEM, etc.)
+- **Dark/Light themes**: Warm `#131010` dark mode and cream light mode
+- **Methodology page**: Interactive article explaining the pipeline (`#methodology`)
+
+## Screenshots
+
+### Dark Mode (Extractor)
+![Dark mode extractor](docs/extractor-dark.png)
+
+### Light Mode (Extractor)  
+![Light mode extractor](docs/extractor-light.png)
+
+### Methodology Page
+![Methodology article](docs/methodology.png)
+
+## Run
 
 Start the api (loads model + index once):
 
@@ -25,16 +41,31 @@ bun run dev
 
 Open `http://localhost:5173`.
 
-## config
+## Pages
+
+| Path | Description |
+|------|-------------|
+| `/` | Concept extractor - paste clinical text, view entity extractions |
+| `/#methodology` | Interactive article explaining how trm-umls works |
+
+## Config
 
 By default the ui calls `http://127.0.0.1:8000`.
 
-You can override with:
+Override with:
 
 ```bash
 VITE_API_BASE=http://127.0.0.1:8000 bun run dev
 ```
 
-## privacy
+## Design
 
-This is intended to run locally. Do not point it at a remote api if your notes contain PHI.
+The UI follows OpenCode-inspired design principles:
+- Warm backgrounds (`#131010` dark, `#faf9f8` light)
+- Monochrome accents (no bright colors in UI chrome)
+- Squarish corners (4px border radius)
+- Color reserved for data visualization only
+
+## Privacy
+
+This runs locally only. Do not point it at a remote api if your notes contain PHI.

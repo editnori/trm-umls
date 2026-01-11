@@ -2,105 +2,336 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   DESIGN SYSTEM
+   Dark: #131010 warm dark
+   Light: warm cream equivalent
+   ============================================ */
+
 :root {
-  color-scheme: dark;
-  --bg: 2 6 23; /* slate-950-ish */
-  --surface: 6 10 27;
-  --surface-2: 9 14 35;
-  --border: 35 41 62;
-  --text: 241 245 249;
-  --muted: 148 163 184;
-  --faint: 100 116 139;
-  --accent: 56 189 248; /* sky-400 */
-  --danger: 244 63 94;
+  color-scheme: light;
+
+  /* === BACKGROUNDS - warm cream === */
+  --bg-page: #faf9f8;
+  --bg-surface: #f3f2f0;
+  --bg-elevated: #ffffff;
+  --bg-code: #f0efed;
+  --bg-hover: rgba(19, 16, 16, 0.04);
+  --bg-active: rgba(19, 16, 16, 0.08);
+
+  /* === TEXT === */
+  --text-primary: #131010;
+  --text-body: #4a4544;
+  --text-muted: #7a7574;
+  --text-faint: #a8a3a2;
+
+  /* === ACCENT - monochrome === */
+  --accent: #131010;
+  --accent-soft: rgba(19, 16, 16, 0.1);
+
+  /* === SEMANTIC === */
+  --success: #2d7a4f;
+  --warning: #a35d12;
+  --error: #b33d3d;
+
+  /* === BORDERS === */
+  --border: rgba(19, 16, 16, 0.08);
+  --border-strong: rgba(19, 16, 16, 0.12);
+
+  /* === TYPOGRAPHY === */
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "IBM Plex Sans", -apple-system, sans-serif;
+
+  /* === RADIUS === */
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 6px;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+/* Dark theme - #131010 base */
+[data-theme="dark"] {
+  color-scheme: dark;
+  
+  --bg-page: #131010;
+  --bg-surface: #1a1716;
+  --bg-elevated: #211d1c;
+  --bg-code: #1a1716;
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-active: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #ebe8e7;
+  --text-body: #a8a3a2;
+  --text-muted: #6e6968;
+  --text-faint: #4a4544;
+
+  --accent: #ebe8e7;
+  --accent-soft: rgba(235, 232, 231, 0.1);
+
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #f87171;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.1);
 }
+
+/* === BASE === */
+html, body, #root { height: 100%; }
 
 body {
   margin: 0;
-  background: rgb(var(--bg));
-  color: rgb(var(--text));
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  background: var(--bg-page);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: rgb(var(--accent));
-  text-decoration: none;
+::selection { background: var(--accent-soft); }
+
+/* Scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+/* === UTILITIES === */
+.bg-page { background: var(--bg-page); }
+.bg-surface { background: var(--bg-surface); }
+.bg-elevated { background: var(--bg-elevated); }
+.text-primary { color: var(--text-primary); }
+.text-body { color: var(--text-body); }
+.text-muted { color: var(--text-muted); }
+.text-faint { color: var(--text-faint); }
+.border-border { border-color: var(--border); }
+
+/* ============================================
+   NER ENTITY HIGHLIGHTING
+   ============================================ */
+
+.entity-mark {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.1s ease;
 }
 
-a:hover {
-  text-decoration: underline;
+.entity-mark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 1px;
 }
 
-::selection {
-  background: rgba(var(--accent), 0.22);
+.entity-mark:hover {
+  background-color: var(--bg-hover);
 }
 
-@layer components {
-  .ui-card {
-    @apply rounded-xl border bg-slate-900/20;
-    border-color: rgba(255, 255, 255, 0.07);
-  }
+.entity-mark.selected {
+  background-color: var(--bg-active);
+}
 
-  .ui-card-header {
-    @apply flex items-start justify-between gap-3 px-4 py-3;
-  }
+/* Entity colors */
+.entity-DISO::after { background: #b45309; }
+.entity-CHEM::after { background: #0d7377; }
+.entity-PROC::after { background: #92400e; }
+.entity-ANAT::after { background: #166534; }
+.entity-PHEN::after { background: #4d7c0f; }
+.entity-PHYS::after { background: #075985; }
+.entity-GENE::after { background: #6d28d9; }
+.entity-CONC::after { background: #525252; }
+.entity-ACTI::after { background: #7e22ce; }
+.entity-DEVI::after { background: #0f766e; }
+.entity-GEOG::after { background: #1d4ed8; }
+.entity-LIVB::after { background: #b91c1c; }
+.entity-OBJC::after { background: #57534e; }
+.entity-OCCU::after { background: #a16207; }
+.entity-ORGA::after { background: #52525b; }
 
-  .ui-card-body {
-    @apply px-4 pb-4;
-  }
+/* Badges */
+.entity-badge {
+  display: inline-flex;
+  margin-left: 3px;
+  padding: 1px 4px;
+  font-size: 9px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  vertical-align: middle;
+  color: white;
+}
 
-  .ui-label {
-    @apply text-[11px] font-semibold uppercase tracking-wide;
-    color: rgb(var(--faint));
-  }
+.badge-DISO { background: #b45309; }
+.badge-CHEM { background: #0d7377; }
+.badge-PROC { background: #92400e; }
+.badge-ANAT { background: #166534; }
+.badge-PHEN { background: #4d7c0f; }
+.badge-PHYS { background: #075985; }
+.badge-GENE { background: #6d28d9; }
+.badge-CONC { background: #525252; }
+.badge-ACTI { background: #7e22ce; }
+.badge-DEVI { background: #0f766e; }
+.badge-GEOG { background: #1d4ed8; }
+.badge-LIVB { background: #b91c1c; }
+.badge-OBJC { background: #57534e; }
+.badge-OCCU { background: #a16207; }
+.badge-ORGA { background: #52525b; }
 
-  .ui-input {
-    @apply w-full rounded-lg border bg-slate-950/50 px-3 py-2 text-sm outline-none transition-colors;
-    border-color: rgba(255, 255, 255, 0.07);
-  }
+.badge-PRESENT { background: #166534; }
+.badge-ABSENT { background: #b91c1c; }
+.badge-POSSIBLE { background: #a16207; }
 
-  .ui-input:focus {
-    border-color: rgba(var(--accent), 0.45);
-    box-shadow: 0 0 0 3px rgba(var(--accent), 0.14);
-  }
+/* Filter pills */
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.1s ease;
+  color: white;
+}
 
-  .ui-button {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors;
-  }
+.filter-pill .count {
+  opacity: 0.8;
+  font-size: 9px;
+  padding: 0 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
 
-  .ui-button-primary {
-    background: rgba(var(--accent), 0.95);
-    color: rgb(2 6 23);
-  }
+.filter-pill.inactive { opacity: 0.25; }
 
-  .ui-button-primary:hover {
-    background: rgba(var(--accent), 0.86);
-  }
+.filter-PRESENT { background: #166534; }
+.filter-ABSENT { background: #b91c1c; }
+.filter-POSSIBLE { background: #a16207; }
+.filter-DISO { background: #b45309; }
+.filter-CHEM { background: #0d7377; }
+.filter-PROC { background: #92400e; }
+.filter-ANAT { background: #166534; }
+.filter-PHEN { background: #4d7c0f; }
+.filter-PHYS { background: #075985; }
+.filter-GENE { background: #6d28d9; }
+.filter-CONC { background: #525252; }
+.filter-ACTI { background: #7e22ce; }
+.filter-DEVI { background: #0f766e; }
+.filter-GEOG { background: #1d4ed8; }
+.filter-LIVB { background: #b91c1c; }
+.filter-OBJC { background: #57534e; }
+.filter-OCCU { background: #a16207; }
+.filter-ORGA { background: #52525b; }
 
-  .ui-button-secondary {
-    @apply border bg-slate-950/40;
-    border-color: rgba(255, 255, 255, 0.08);
-    color: rgb(var(--text));
-  }
+/* Toggle */
+.toggle-track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
 
-  .ui-button-secondary:hover {
-    @apply bg-slate-950/65;
-  }
+.toggle-track.off { background: var(--border-strong); }
+.toggle-track.on { background: var(--text-primary); }
 
-  .ui-button-ghost {
-    @apply bg-transparent;
-    color: rgb(var(--muted));
-  }
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--bg-page);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease;
+}
 
-  .ui-button-ghost:hover {
-    color: rgb(var(--text));
-    background: rgba(255, 255, 255, 0.04);
-  }
+.toggle-track.off .toggle-thumb { transform: translateX(2px); }
+.toggle-track.on .toggle-thumb { transform: translateX(16px); }
+
+/* Prose for methodology page */
+.prose {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.prose p {
+  margin-bottom: 1.5em;
+}
+
+.prose h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 3em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--bg-surface);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.prose pre {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--border-strong);
+  padding-left: 16px;
+  margin: 1.5em 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 12px;
+}
+
+.prose th, .prose td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose th {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3em 0;
 }
