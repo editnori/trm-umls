@@ -12,22 +12,22 @@
   color-scheme: light;
 
   /* === BACKGROUNDS - warm cream === */
-  --bg-page: #faf9f8;
-  --bg-surface: #f3f2f0;
+  --bg-page: #fdfcfc;
+  --bg-surface: #f7f6f5;
   --bg-elevated: #ffffff;
-  --bg-code: #f0efed;
-  --bg-hover: rgba(19, 16, 16, 0.04);
-  --bg-active: rgba(19, 16, 16, 0.08);
+  --bg-code: #f7f6f5;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-active: rgba(0, 0, 0, 0.08);
 
   /* === TEXT === */
-  --text-primary: #131010;
-  --text-body: #4a4544;
-  --text-muted: #7a7574;
-  --text-faint: #a8a3a2;
+  --text-primary: #201d1d;
+  --text-body: #646262;
+  --text-muted: #8a8888;
+  --text-faint: #b8b6b6;
 
   /* === ACCENT - monochrome === */
-  --accent: #131010;
-  --accent-soft: rgba(19, 16, 16, 0.1);
+  --accent: #201d1d;
+  --accent-soft: rgba(32, 29, 29, 0.1);
 
   /* === SEMANTIC === */
   --success: #2d7a4f;
@@ -35,8 +35,8 @@
   --error: #b33d3d;
 
   /* === BORDERS === */
-  --border: rgba(19, 16, 16, 0.08);
-  --border-strong: rgba(19, 16, 16, 0.12);
+  --border: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.1);
 
   /* === TYPOGRAPHY === */
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -52,20 +52,20 @@
 [data-theme="dark"] {
   color-scheme: dark;
   
-  --bg-page: #131010;
-  --bg-surface: #1a1716;
-  --bg-elevated: #211d1c;
-  --bg-code: #1a1716;
+  --bg-page: #1a1a1c;
+  --bg-surface: #212123;
+  --bg-elevated: #28282b;
+  --bg-code: #212123;
   --bg-hover: rgba(255, 255, 255, 0.04);
   --bg-active: rgba(255, 255, 255, 0.08);
 
-  --text-primary: #ebe8e7;
-  --text-body: #a8a3a2;
-  --text-muted: #6e6968;
-  --text-faint: #4a4544;
+  --text-primary: #e8e8e8;
+  --text-body: #a0a0a0;
+  --text-muted: #707070;
+  --text-faint: #505050;
 
-  --accent: #ebe8e7;
-  --accent-soft: rgba(235, 232, 231, 0.1);
+  --accent: #e8e8e8;
+  --accent-soft: rgba(232, 232, 232, 0.1);
 
   --success: #4ade80;
   --warning: #fbbf24;
@@ -105,6 +105,15 @@ body {
 .text-muted { color: var(--text-muted); }
 .text-faint { color: var(--text-faint); }
 .border-border { border-color: var(--border); }
+.border-border-strong { border-color: var(--border-strong); }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
 
 /* ============================================
    NER ENTITY HIGHLIGHTING
@@ -258,28 +267,36 @@ body {
 .prose {
   max-width: 680px;
   margin: 0 auto;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.75;
 }
 
-.prose p {
-  margin-bottom: 1.5em;
+.prose p { margin-bottom: 1.4em; }
+
+.prose h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5em;
 }
 
 .prose h2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-top: 3em;
-  margin-bottom: 1em;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid var(--border);
 }
 
 .prose h3 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-top: 2em;
-  margin-bottom: 0.75em;
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
 }
 
 .prose code {
@@ -334,4 +351,17 @@ body {
   border: none;
   border-top: 1px solid var(--border);
   margin: 3em 0;
+}
+
+.prose .mermaid {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
+
+.katex {
+  color: var(--text-primary);
 }
