@@ -1,13 +1,10 @@
-import mermaid from "mermaid";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { extractSingle, getHealth } from "./api";
 import { cx } from "./components/cx";
-import { renderMarkdown } from "./components/markdown";
 import { DEMO_EXTRACTIONS, DEMO_NOTE } from "./demo_data";
 import type { Candidate, ConceptExtraction, ExtractOptions } from "./types";
-import paperRaw from "../../trm_umls/paper.md?raw";
 
-const DEFAULT_EXAMPLE_OPTIONS: ExtractOptions = {
+const DEFAULT_OPTIONS: ExtractOptions = {
   threshold: 0.55,
   top_k: 8,
   dedupe: true,
@@ -19,449 +16,315 @@ const DEFAULT_EXAMPLE_OPTIONS: ExtractOptions = {
   rerank_margin: 0.04,
 };
 
-type ApiState =
-  | { kind: "checking" }
-  | { kind: "offline" }
-  | { kind: "loading" }
-  | { kind: "ready" };
-
-type Tab = "input" | "mentions" | "candidates" | "output";
-
-function splitPaper(md: string): [string, string] {
-  const marker = "\n---\n";
-  const idx = md.indexOf(marker);
-  if (idx === -1) return [md, ""];
-  return [md.slice(0, idx), md.slice(idx)];
-}
+type ApiState = "checking" | "offline" | "loading" | "ready";
 
 export default function Methodology() {
-  const [api, setApi] = useState<ApiState>({ kind: "checking" });
-  const [live, setLive] = useState(true);
-
-  const [tab, setTab] = useState<Tab>("input");
-  const [exampleText, setExampleText] = useState(DEMO_NOTE);
-  const [options, setOptions] = useState<ExtractOptions>(DEFAULT_EXAMPLE_OPTIONS);
-
+  const [api, setApi] = useState<ApiState>("checking");
+  const [live] = useState(true);
+  const [text, setText] = useState(DEMO_NOTE);
+  const [options] = useState<ExtractOptions>(DEFAULT_OPTIONS);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [rows, setRows] = useState<ConceptExtraction[]>(DEMO_EXTRACTIONS);
   const [selected, setSelected] = useState<string | null>(null);
 
-  const articleRef = useRef<HTMLDivElement | null>(null);
-
-  const [introMd, restMd] = useMemo(() => splitPaper(paperRaw), []);
-  const introHtml = useMemo(() => patchAnchors(renderMarkdown(introMd)), [introMd]);
-  const restHtml = useMemo(() => patchAnchors(renderMarkdown(restMd)), [restMd]);
-
+  // Check API health
   useEffect(() => {
     let mounted = true;
-    async function tick() {
+    async function check() {
       try {
         const h = await getHealth();
         if (!mounted) return;
-        if (!h.ok) setApi({ kind: "offline" });
-        else if (!h.loaded) setApi({ kind: "loading" });
-        else setApi({ kind: "ready" });
+        if (!h.ok) setApi("offline");
+        else if (!h.loaded) setApi("loading");
+        else setApi("ready");
       } catch {
-        if (mounted) setApi({ kind: "offline" });
+        if (mounted) setApi("offline");
       }
     }
-    void tick();
-    const id = window.setInterval(tick, 5000);
-    return () => {
-      mounted = false;
-      window.clearInterval(id);
-    };
+    void check();
+    const id = setInterval(check, 5000);
+    return () => { mounted = false; clearInterval(id); };
   }, []);
 
+  // Auto-run when API ready
   useEffect(() => {
-    const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral";
-    mermaid.initialize({
-      startOnLoad: false,
-      theme,
-      securityLevel: "strict",
-    });
-  }, []);
-
-  // Re-initialize mermaid when theme changes
-  useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.attributeName === "data-theme") {
-          const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral";
-          mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict" });
-          if (articleRef.current) {
-            const nodes = Array.from(articleRef.current.querySelectorAll(".mermaid")) as HTMLElement[];
-            if (nodes.length) mermaid.run({ nodes });
-          }
-        }
-      }
-    });
-    observer.observe(document.documentElement, { attributes: true });
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!articleRef.current) return;
-    const nodes = Array.from(articleRef.current.querySelectorAll(".mermaid")) as HTMLElement[];
-    if (nodes.length === 0) return;
-    mermaid.run({ nodes });
-  }, [introHtml, restHtml]);
-
-  useEffect(() => {
-    const jump = () => {
-      const hash = window.location.hash.slice(1);
-      const parts = hash.split("/");
-      if (parts[0] !== "methodology") return;
-      const anchor = parts[1];
-      if (!anchor) return;
-      const el = document.getElementById(anchor);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
-    jump();
-    window.addEventListener("hashchange", jump);
-    return () => window.removeEventListener("hashchange", jump);
-  }, []);
-
-  const apiLabel = useMemo(() => {
-    if (api.kind === "checking") return "checking api";
-    if (api.kind === "offline") return "demo (api offline)";
-    if (api.kind === "loading") return "api loading model";
-    return "live";
-  }, [api.kind]);
-
-  const canRunLive = api.kind === "ready";
-  const usingLive = live && canRunLive;
-
-  // Auto-run when API becomes ready
-  useEffect(() => {
-    if (api.kind !== "ready") return;
-    if (!live) return;
-    void runExample({ auto: true });
+    if (api === "ready" && live) void run();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [api.kind]);
+  }, [api]);
 
-  // Auto-select first extraction if none selected
+  // Auto-select first row
   useEffect(() => {
-    if (!selected && rows.length > 0) {
-      setSelected(rowKey(rows[0]));
-    }
+    if (!selected && rows.length) setSelected(rowKey(rows[0]));
   }, [rows, selected]);
 
-  const selectedRow = useMemo(() => {
-    if (!selected) return null;
-    return rows.find((r) => rowKey(r) === selected) ?? null;
-  }, [rows, selected]);
+  const usingLive = live && api === "ready";
+  const selectedRow = useMemo(() => rows.find(r => rowKey(r) === selected) ?? null, [rows, selected]);
+  const candidates = useMemo(() => (selectedRow?.candidates ?? null) as Candidate[] | null, [selectedRow]);
 
-  const candidates = useMemo(() => {
-    const c = selectedRow?.candidates ?? null;
-    if (!c || !c.length) return null;
-    return c as Candidate[];
-  }, [selectedRow]);
-
-  async function runExample(opts?: { auto?: boolean }) {
+  async function run() {
     setBusy(true);
-    if (!opts?.auto) setError(null);
     try {
       if (!usingLive) {
         setRows(DEMO_EXTRACTIONS);
-        if (!selected) setSelected(rowKey(DEMO_EXTRACTIONS[0]));
         return;
       }
-      const res = await extractSingle(exampleText, options);
+      const res = await extractSingle(text, options);
       setRows(res.extractions);
-      if (!selected && res.extractions.length) setSelected(rowKey(res.extractions[0]));
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : String(err));
+    } catch {
       setRows(DEMO_EXTRACTIONS);
-      if (!selected) setSelected(rowKey(DEMO_EXTRACTIONS[0]));
     } finally {
       setBusy(false);
     }
   }
 
+  const statusLabel = api === "checking" ? "checking" : api === "offline" ? "demo mode" : api === "loading" ? "loading model" : "live";
+
   return (
     <div className="min-h-screen bg-page">
-      <header className="flex h-9 items-center px-4">
-        <div className="flex items-center gap-2 text-[11px] text-muted">
-          <span className="text-body font-medium">trm-umls</span>
-          <span className="text-faint">·</span>
-          <span>{apiLabel}</span>
-        </div>
-        <div className="ml-auto flex items-center gap-3 text-[11px] text-muted">
-          <a href="/" className="hover:text-primary">extractor</a>
-          <span className="text-faint">·</span>
-          <a href="#methodology/abstract" className="hover:text-primary">paper</a>
-        </div>
+      {/* Header */}
+      <header className="flex h-9 items-center px-4 border-b border-border">
+        <span className="text-[11px] text-muted font-medium">trm-umls</span>
+        <span className="mx-2 text-faint">·</span>
+        <span className="text-[11px] text-faint">{statusLabel}</span>
+        <a href="/" className="ml-auto text-[11px] text-muted hover:text-primary">← extractor</a>
       </header>
 
-      <article ref={articleRef} className="prose mx-auto max-w-3xl px-6 py-10">
-        <div dangerouslySetInnerHTML={{ __html: introHtml }} />
+      {/* Content */}
+      <main className="max-w-2xl mx-auto px-6 py-10">
+        <h1 className="text-xl font-semibold text-primary">How trm-umls works</h1>
+        <p className="mt-2 text-sm text-muted">A retrieval-based concept linker for clinical text.</p>
 
-        <section className="my-10 rounded border border-border bg-surface">
-          <div className="flex items-center gap-2 border-b border-border px-4 py-2 text-[10px] uppercase tracking-wide text-muted">
-            try it now
-            <span className="text-faint">·</span>
-            <span className="normal-case text-[11px]">{apiLabel}</span>
-            <div className="ml-auto flex items-center gap-2 text-[10px]">
-              <button
-                className={cx(
-                  "rounded px-2 py-1 text-[10px]",
-                  usingLive ? "bg-elevated text-primary" : "text-muted hover:text-primary",
-                )}
-                onClick={() => setLive(true)}
-              >
-                live
-              </button>
-              <button
-                className={cx(
-                  "rounded px-2 py-1 text-[10px]",
-                  !live ? "bg-elevated text-primary" : "text-muted hover:text-primary",
-                )}
-                onClick={() => setLive(false)}
-              >
-                demo
-              </button>
-              <span className="text-faint">·</span>
-              <button
-                className="rounded px-2 py-1 text-[10px] text-muted hover:text-primary"
-                onClick={() => void runExample()}
-                disabled={busy}
-              >
-                {busy ? "running…" : "run"}
-              </button>
-            </div>
+        <hr className="my-8 border-border" />
+
+        {/* Section 1: The Goal */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">What it does</h2>
+          <p className="text-sm text-body leading-relaxed">
+            You give it clinical text. It finds medical concepts and returns structured data: 
+            the span of text, a UMLS concept ID (CUI), whether the finding is present or denied, 
+            and who it refers to (patient or family).
+          </p>
+          <div className="mt-4 p-3 bg-surface rounded border border-border font-mono text-xs">
+            <div className="text-muted mb-2">input:</div>
+            <div className="text-primary">"Patient denies chest pain. History of HTN."</div>
+            <div className="text-muted mt-3 mb-2">output:</div>
+            <div className="text-primary">chest pain → C0008031 (ABSENT)</div>
+            <div className="text-primary">HTN → C0020538 (PRESENT)</div>
           </div>
+        </section>
 
-          <div className="border-b border-border bg-elevated px-4 py-2">
-            <div className="flex flex-wrap items-center gap-2 text-[11px]">
-              {(
-                [
-                  ["input", "1. input"],
-                  ["mentions", "2. mentions"],
-                  ["candidates", "3. retrieval"],
-                  ["output", "4. output"],
-                ] as Array<[Tab, string]>
-              ).map(([k, label]) => (
+        <hr className="my-8 border-border" />
+
+        {/* Section 2: The Approach */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">How it works</h2>
+          <p className="text-sm text-body leading-relaxed mb-4">
+            The system uses <strong>retrieval</strong>, not generation. Instead of training a huge model 
+            to "know" all of UMLS, we:
+          </p>
+          <ol className="text-sm text-body leading-relaxed space-y-2 ml-4">
+            <li><span className="text-muted">1.</span> Embed all 1.16M UMLS concepts once using SapBERT (a biomedical encoder)</li>
+            <li><span className="text-muted">2.</span> Build a FAISS index for fast nearest-neighbor search</li>
+            <li><span className="text-muted">3.</span> Train a tiny model (9.8M params) to project clinical text into the same space</li>
+          </ol>
+          <p className="text-sm text-body leading-relaxed mt-4">
+            At runtime, we embed the text span, search FAISS for the closest concept, and return it.
+            The small model only needs to <em>point</em> to the right neighborhood—it doesn't store medical knowledge itself.
+          </p>
+        </section>
+
+        <hr className="my-8 border-border" />
+
+        {/* Section 3: Try It */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">Try it</h2>
+          <p className="text-sm text-body leading-relaxed mb-4">
+            {api === "offline" 
+              ? "The API is offline, so this shows demo output. Start the API to see live results."
+              : "Paste text below and click Run to see extractions."}
+          </p>
+
+          <div className="rounded border border-border overflow-hidden">
+            {/* Input */}
+            <div className="p-3 bg-elevated">
+              <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">note text</div>
+              <textarea
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                rows={3}
+                className="w-full resize-none bg-transparent text-sm text-primary font-mono outline-none"
+                spellCheck={false}
+              />
+              <div className="flex items-center gap-2 mt-2">
                 <button
-                  key={k}
-                  onClick={() => setTab(k)}
-                  className={cx(
-                    "rounded px-2.5 py-1 text-[11px] font-medium",
-                    tab === k ? "bg-surface text-primary" : "text-muted hover:text-primary",
-                  )}
+                  onClick={() => void run()}
+                  disabled={busy}
+                  className="px-3 py-1 text-xs font-medium rounded bg-surface border border-border text-primary hover:bg-hover disabled:opacity-50"
                 >
-                  {label}
+                  {busy ? "running…" : "run"}
                 </button>
-              ))}
-              <div className="ml-auto text-[10px] text-faint">
-                threshold <span className="font-mono">{options.threshold.toFixed(2)}</span> · top-k{" "}
-                <span className="font-mono">{options.top_k}</span>
+                <span className="text-[10px] text-faint">
+                  {usingLive ? "live" : "demo"} · threshold {options.threshold}
+                </span>
+              </div>
+            </div>
+
+            {/* Results */}
+            <div className="border-t border-border p-3 bg-surface">
+              <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">
+                extractions ({rows.length})
+              </div>
+              <div className="space-y-1">
+                {rows.map((r) => {
+                  const key = rowKey(r);
+                  const isSelected = selected === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setSelected(key)}
+                      className={cx(
+                        "w-full text-left px-2 py-1.5 rounded text-xs font-mono",
+                        isSelected ? "bg-elevated border border-border-strong" : "hover:bg-hover"
+                      )}
+                    >
+                      <span className="text-primary">{r.text}</span>
+                      <span className="text-muted ml-2">→ {r.cui}</span>
+                      <span className={cx("ml-2", r.assertion === "ABSENT" ? "text-error" : "text-success")}>
+                        {r.assertion}
+                      </span>
+                      {r.subject === "FAMILY" && <span className="ml-2 text-warning">FAMILY</span>}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="bg-elevated px-4 py-4">
-            {tab === "input" ? (
-              <div>
-                <div className="section-label">note text</div>
-                <textarea
-                  value={exampleText}
-                  onChange={(e) => setExampleText(e.target.value)}
-                  rows={4}
-                  className="mt-2 w-full resize-none rounded border border-border bg-elevated px-3 py-2 font-mono text-[12px] leading-relaxed text-primary outline-none focus:border-border-strong"
-                  spellCheck={false}
-                />
-                <div className="mt-3 grid grid-cols-2 gap-3">
-                  <div>
-                    <div className="section-label">threshold</div>
-                    <input
-                      type="range"
-                      min={0.35}
-                      max={0.9}
-                      step={0.01}
-                      value={options.threshold}
-                      onChange={(e) => setOptions((o) => ({ ...o, threshold: Number(e.target.value) }))}
-                      className="mt-2 w-full"
-                    />
-                  </div>
-                  <div>
-                    <div className="section-label">lexical weight</div>
-                    <input
-                      type="range"
-                      min={0}
-                      max={0.8}
-                      step={0.01}
-                      value={options.lexical_weight ?? 0.3}
-                      onChange={(e) => setOptions((o) => ({ ...o, lexical_weight: Number(e.target.value) }))}
-                      className="mt-2 w-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-3 text-[11px] text-muted">
-                  if the api is offline, this panel uses a small demo output.
+        <hr className="my-8 border-border" />
+
+        {/* Section 4: Retrieval Detail */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">Inside the retrieval</h2>
+          <p className="text-sm text-body leading-relaxed mb-4">
+            When you select an extraction above, you can see the candidate concepts that FAISS returned. 
+            The system picks the best one using a combination of embedding similarity and light reranking.
+          </p>
+
+          {selectedRow && (
+            <div className="rounded border border-border overflow-hidden">
+              <div className="p-3 bg-elevated">
+                <div className="text-xs font-mono text-primary">{selectedRow.text}</div>
+                <div className="text-[10px] text-muted mt-1">
+                  normalized: <span className="font-mono">{selectedRow.normalized_text}</span>
                 </div>
               </div>
-            ) : null}
 
-            {tab === "mentions" ? (
-              <div>
-                <div className="section-label">extracted spans</div>
-                <div className="mt-2 space-y-2">
-                  {rows.length ? (
-                    rows.map((r) => {
-                      const key = rowKey(r);
-                      const on = selected === key;
-                      return (
-                        <button
-                          key={key}
-                          className={cx(
-                            "w-full rounded border px-3 py-2 text-left transition-colors",
-                            on ? "border-border-strong bg-surface" : "border-border bg-elevated hover:bg-hover",
-                          )}
-                          onClick={() => setSelected(key)}
-                        >
-                          <div className="flex items-center justify-between gap-3">
-                            <div className="min-w-0">
-                              <div className="truncate font-mono text-[12px] text-primary">{r.text}</div>
-                              <div className="mt-0.5 truncate text-[11px] text-muted">
-                                normalized: <span className="font-mono">{r.normalized_text}</span>
-                              </div>
-                            </div>
-                            <div className="shrink-0 text-right">
-                              <div className="font-mono text-[11px] text-muted">{r.score.toFixed(3)}</div>
-                              <div className="mt-0.5 text-[10px] text-faint">
-                                {r.semantic_group} · {r.assertion}
-                              </div>
-                            </div>
-                          </div>
-                        </button>
-                      );
-                    })
-                  ) : (
-                    <div className="text-[11px] text-muted">no spans returned.</div>
-                  )}
-                </div>
-              </div>
-            ) : null}
-
-            {tab === "candidates" ? (
-              <div>
-                <div className="section-label">retrieval + rerank</div>
-                {!selectedRow ? (
-                  <div className="mt-2 text-[11px] text-muted">select a span in “mentions”.</div>
-                ) : !candidates ? (
-                  <div className="mt-2 text-[11px] text-muted">
-                    no candidate list available. enable candidates and rerun in the extractor.
-                  </div>
-                ) : (
-                  <>
-                    <div className="mt-2">
-                      <div className="font-mono text-[12px] text-primary">{selectedRow.text}</div>
-                      <div className="text-[11px] text-muted">
-                        faiss top-k results, then rerank inside a small margin.
-                      </div>
-                    </div>
-                    <div className="mt-3 overflow-hidden rounded border border-border">
-                      <table className="w-full text-[11px]">
-                        <thead className="bg-surface text-[10px] uppercase tracking-wide text-muted">
-                          <tr>
-                            <th className="px-3 py-2 text-left">rank</th>
-                            <th className="px-3 py-2 text-left">cui</th>
-                            <th className="px-3 py-2 text-left">preferred term</th>
-                            <th className="px-3 py-2 text-right">sim</th>
-                            <th className="px-3 py-2 text-right">lex</th>
-                            <th className="px-3 py-2 text-right">bias</th>
-                            <th className="px-3 py-2 text-right">pen</th>
-                            <th className="px-3 py-2 text-right">rerank</th>
-                          </tr>
-                        </thead>
-                        <tbody className="font-mono">
-                          {candidates.map((c) => (
-                            <tr key={`${c.rank}:${c.cui}`} className="border-t border-border">
-                              <td className="px-3 py-2 text-muted">{c.rank}</td>
-                              <td className="px-3 py-2 text-muted">{c.cui}</td>
-                              <td className="px-3 py-2 font-sans text-primary">
-                                {c.preferred_term}
-                                <span className="ml-2 text-[10px] text-faint">
-                                  {c.tui} · {c.semantic_group}
-                                </span>
-                              </td>
-                              <td className="px-3 py-2 text-right text-muted">{c.score.toFixed(3)}</td>
-                              <td className="px-3 py-2 text-right text-muted">{c.lex.toFixed(3)}</td>
-                              <td className="px-3 py-2 text-right text-muted">{c.bias.toFixed(3)}</td>
-                              <td className="px-3 py-2 text-right text-muted">{c.penalty.toFixed(3)}</td>
-                              <td className="px-3 py-2 text-right text-primary">{c.rerank_score.toFixed(3)}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </>
-                )}
-              </div>
-            ) : null}
-
-            {tab === "output" ? (
-              <div>
-                <div className="section-label">structured output</div>
-                <div className="mt-2 overflow-hidden rounded border border-border">
+              {candidates && candidates.length > 0 ? (
+                <div className="border-t border-border">
                   <table className="w-full text-[11px]">
                     <thead className="bg-surface text-[10px] uppercase tracking-wide text-muted">
                       <tr>
-                        <th className="px-3 py-2 text-left">span</th>
+                        <th className="px-3 py-2 text-left">#</th>
                         <th className="px-3 py-2 text-left">cui</th>
-                        <th className="px-3 py-2 text-left">assertion</th>
-                        <th className="px-3 py-2 text-right">score</th>
+                        <th className="px-3 py-2 text-left">term</th>
+                        <th className="px-3 py-2 text-right">sim</th>
+                        <th className="px-3 py-2 text-right">final</th>
                       </tr>
                     </thead>
                     <tbody className="font-mono">
-                      {rows.map((r) => (
-                        <tr key={rowKey(r)} className="border-t border-border">
-                          <td className="px-3 py-2 text-primary">{r.text}</td>
-                          <td className="px-3 py-2 text-muted">{r.cui}</td>
-                          <td className="px-3 py-2 text-muted">{r.assertion}</td>
-                          <td className="px-3 py-2 text-right text-muted">{r.score.toFixed(3)}</td>
+                      {candidates.slice(0, 5).map((c, i) => (
+                        <tr key={c.cui} className={cx("border-t border-border", i === 0 && "bg-elevated")}>
+                          <td className="px-3 py-2 text-muted">{c.rank + 1}</td>
+                          <td className="px-3 py-2 text-muted">{c.cui}</td>
+                          <td className="px-3 py-2 text-primary font-sans">{c.preferred_term}</td>
+                          <td className="px-3 py-2 text-right text-muted">{c.score.toFixed(2)}</td>
+                          <td className="px-3 py-2 text-right text-primary">{c.rerank_score.toFixed(2)}</td>
                         </tr>
                       ))}
-                      {!rows.length ? (
-                        <tr>
-                          <td className="px-3 py-3 text-[11px] text-muted" colSpan={4}>
-                            no extractions returned.
-                          </td>
-                        </tr>
-                      ) : null}
                     </tbody>
                   </table>
                 </div>
-              </div>
-            ) : null}
-          </div>
-
-          {api.kind === "offline" ? (
-            <div className="border-t border-border bg-surface px-4 py-3 text-[11px] text-muted">
-              api not reachable. start it with{" "}
-              <span className="font-mono text-primary">python3 -m trm_umls.api</span>. this page is showing demo output.
+              ) : (
+                <div className="p-3 border-t border-border text-xs text-muted">
+                  No candidate list available for this span.
+                </div>
+              )}
             </div>
-          ) : null}
+          )}
 
-          {error ? (
-            <div className="border-t border-border bg-surface px-4 py-3 text-[11px] text-[var(--error)]">
-              {error}
-            </div>
-          ) : null}
+          <p className="text-sm text-body leading-relaxed mt-4">
+            The <strong>sim</strong> column is cosine similarity from FAISS. The <strong>final</strong> score 
+            adds small adjustments for lexical overlap and semantic type preferences. These are tie-breakers—a 
+            clearly better embedding match always wins.
+          </p>
         </section>
 
-        <div dangerouslySetInnerHTML={{ __html: restHtml }} />
-      </article>
+        <hr className="my-8 border-border" />
+
+        {/* Section 5: Key Numbers */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">Key numbers</h2>
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="p-3 bg-surface rounded border border-border">
+              <div className="text-muted">model size</div>
+              <div className="text-primary font-mono mt-1">9.8M params</div>
+            </div>
+            <div className="p-3 bg-surface rounded border border-border">
+              <div className="text-muted">UMLS concepts</div>
+              <div className="text-primary font-mono mt-1">1,164,238</div>
+            </div>
+            <div className="p-3 bg-surface rounded border border-border">
+              <div className="text-muted">embedding dim</div>
+              <div className="text-primary font-mono mt-1">768</div>
+            </div>
+            <div className="p-3 bg-surface rounded border border-border">
+              <div className="text-muted">throughput</div>
+              <div className="text-primary font-mono mt-1">~130 rows/sec</div>
+            </div>
+          </div>
+        </section>
+
+        <hr className="my-8 border-border" />
+
+        {/* Section 6: Limitations */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">Where it struggles</h2>
+          <ul className="text-sm text-body leading-relaxed space-y-2">
+            <li><span className="text-muted">•</span> <strong>Span boundaries</strong> — sometimes extracts too much or too little text</li>
+            <li><span className="text-muted">•</span> <strong>Disambiguation</strong> — "BUN" could be blood urea nitrogen or a bread roll</li>
+            <li><span className="text-muted">•</span> <strong>Negation scope</strong> — "no HTN, DM, or CAD" may only negate the first item</li>
+            <li><span className="text-muted">•</span> <strong>No gold set</strong> — accuracy metrics require human-labeled data we don't have yet</li>
+          </ul>
+        </section>
+
+        <hr className="my-8 border-border" />
+
+        {/* Section 7: Learn More */}
+        <section>
+          <h2 className="text-sm font-semibold text-primary mb-3">Learn more</h2>
+          <p className="text-sm text-body leading-relaxed">
+            The full technical details are in <a href="https://github.com/editnori/trm-umls" className="text-primary underline">the repository README</a>.
+            It covers the teacher-student distillation, FAISS indexing, reranking formula, and training process.
+          </p>
+        </section>
+
+        {/* Citation */}
+        <div className="mt-12 pt-6 border-t border-border">
+          <div className="text-[10px] text-muted uppercase tracking-wide mb-2">citation</div>
+          <pre className="text-[10px] text-muted font-mono leading-relaxed">
+{`@misc{qassemf2026trmumls,
+  author = {Qassemf, Layth M.},
+  title = {trm-umls: embedding-distilled UMLS linker},
+  year = {2026}
+}`}
+          </pre>
+        </div>
+      </main>
     </div>
   );
 }
 
 function rowKey(r: ConceptExtraction): string {
-  return `${r.start}:${r.end}:${r.cui}:${r.assertion}:${r.subject}`;
-}
-
-function patchAnchors(html: string): string {
-  return html.replace(/href="#([^"]+)"/g, 'href="#methodology/$1"');
+  return `${r.start}:${r.end}:${r.cui}`;
 }

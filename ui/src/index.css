@@ -52,10 +52,10 @@
 [data-theme="dark"] {
   color-scheme: dark;
   
-  --bg-page: #1a1a1c;
-  --bg-surface: #212123;
-  --bg-elevated: #28282b;
-  --bg-code: #212123;
+  --bg-page: #131010;
+  --bg-surface: #1a1716;
+  --bg-elevated: #211d1c;
+  --bg-code: #1a1716;
   --bg-hover: rgba(255, 255, 255, 0.04);
   --bg-active: rgba(255, 255, 255, 0.08);
 
