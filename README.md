@@ -26,6 +26,20 @@ Qassemf, Layth M. *trm-umls: a small embedding-distilled umls concept linker for
 }
 ```
 
+## web ui
+
+A local viewer for extracting and reviewing concept mentions:
+
+![Dark mode extractor](ui/docs/extractor-dark.png)
+
+![Light mode extractor](ui/docs/extractor-light.png)
+
+The methodology page explains how the pipeline works:
+
+![Methodology article](ui/docs/methodology.png)
+
+---
+
 The diagram below is the whole pipeline in one picture:
 
 ```mermaid
