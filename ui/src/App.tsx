@@ -18,7 +18,10 @@ const DEFAULT_OPTIONS: ExtractOptions = {
 };
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = window.localStorage.getItem("trm_umls_theme");
+    return saved === "light" ? false : true;
+  });
   const [options, setOptions] = useState<ExtractOptions>(DEFAULT_OPTIONS);
   const [text, setText] = useState<string>(
     "Assessment: HTN, DM, COPD. Severe left knee pain.\nDenies chest pain or shortness of breath at rest.\nFamily history: breast cancer in mother.",
@@ -46,7 +49,9 @@ export default function App() {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", darkMode ? "dark" : "light");
+    const theme = darkMode ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("trm_umls_theme", theme);
   }, [darkMode]);
 
   const active = useMemo(() => results.find((r) => r.id === activeId) ?? null, [results, activeId]);

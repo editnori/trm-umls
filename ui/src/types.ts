@@ -36,7 +36,22 @@ export interface ConceptExtraction {
   temporality: string | null;
   start: number;
   end: number;
-  candidates: unknown[] | null;
+  candidates: Candidate[] | null;
+}
+
+export interface Candidate {
+  rank: number;
+  cui: string;
+  preferred_term: string;
+  tui: string;
+  semantic_group: string;
+  score: number;
+  lex: number;
+  meets_threshold: boolean;
+  relation_hits: number;
+  bias: number;
+  penalty: number;
+  rerank_score: number;
 }
 
 export interface ExtractOptions {
@@ -47,6 +62,10 @@ export interface ExtractOptions {
   rerank: boolean;
   include_candidates: boolean;
   relation_rerank: boolean;
+  lexical_weight?: number;
+  rerank_margin?: number;
+  relation_weight?: number;
+  relation_max_degree?: number;
 }
 
 export interface ExtractResponse {

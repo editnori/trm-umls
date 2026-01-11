@@ -1,20 +1,124 @@
-import { useState } from "react";
+import { Play, Pulse, WarningCircle } from "@phosphor-icons/react";
+import { useEffect, useMemo, useState } from "react";
+import { extractSingle, getHealth } from "./api";
 import { cx } from "./components/cx";
+import { Latex } from "./components/latex";
+import { DEMO_EXTRACTIONS, DEMO_NOTE } from "./demo_data";
+import type { Candidate, ConceptExtraction, ExtractOptions } from "./types";
 
-/**
- * Methodology page - readable article format like OpenCode docs
- * Interactive elements woven into prose, not replacing it
- */
+const DEFAULT_EXAMPLE_OPTIONS: ExtractOptions = {
+  threshold: 0.55,
+  top_k: 8,
+  dedupe: true,
+  clinical_rerank: true,
+  rerank: true,
+  include_candidates: true,
+  relation_rerank: false,
+  lexical_weight: 0.3,
+  rerank_margin: 0.04,
+};
+
+type ApiState =
+  | { kind: "checking" }
+  | { kind: "offline" }
+  | { kind: "loading" }
+  | { kind: "ready" };
+
+type Tab = "input" | "mentions" | "candidates" | "output" | "math";
 
 export default function Methodology() {
-  const [activeExample, setActiveExample] = useState<"input" | "spans" | "output">("input");
+  const [api, setApi] = useState<ApiState>({ kind: "checking" });
+  const [live, setLive] = useState(true);
+
+  const [tab, setTab] = useState<Tab>("input");
+  const [exampleText, setExampleText] = useState(DEMO_NOTE);
+  const [options, setOptions] = useState<ExtractOptions>(DEFAULT_EXAMPLE_OPTIONS);
+
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [rows, setRows] = useState<ConceptExtraction[]>(DEMO_EXTRACTIONS);
+  const [selected, setSelected] = useState<string | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    async function tick() {
+      try {
+        const h = await getHealth();
+        if (!mounted) return;
+        if (!h.ok) setApi({ kind: "offline" });
+        else if (!h.loaded) setApi({ kind: "loading" });
+        else setApi({ kind: "ready" });
+      } catch {
+        if (mounted) setApi({ kind: "offline" });
+      }
+    }
+    void tick();
+    const id = window.setInterval(tick, 5000);
+    return () => {
+      mounted = false;
+      window.clearInterval(id);
+    };
+  }, []);
+
+  const apiLabel = useMemo(() => {
+    if (api.kind === "checking") return "checking api";
+    if (api.kind === "offline") return "demo (api offline)";
+    if (api.kind === "loading") return "api loading model";
+    return "live";
+  }, [api.kind]);
+
+  const canRunLive = api.kind === "ready";
+  const usingLive = live && canRunLive;
+
+  useEffect(() => {
+    // best-effort auto-run once when the api becomes ready
+    if (api.kind !== "ready") return;
+    if (!live) return;
+    void runExample({ auto: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [api.kind]);
+
+  const selectedRow = useMemo(() => {
+    if (!selected) return null;
+    return rows.find((r) => rowKey(r) === selected) ?? null;
+  }, [rows, selected]);
+
+  const candidates = useMemo(() => {
+    const c = selectedRow?.candidates ?? null;
+    if (!c || !c.length) return null;
+    return c as Candidate[];
+  }, [selectedRow]);
+
+  async function runExample(opts?: { auto?: boolean }) {
+    setBusy(true);
+    if (!opts?.auto) setError(null);
+    try {
+      if (!usingLive) {
+        setRows(DEMO_EXTRACTIONS);
+        if (!selected) setSelected(rowKey(DEMO_EXTRACTIONS[0]));
+        return;
+      }
+      const res = await extractSingle(exampleText, options);
+      setRows(res.extractions);
+      if (!selected && res.extractions.length) setSelected(rowKey(res.extractions[0]));
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
+      setRows(DEMO_EXTRACTIONS);
+      if (!selected) setSelected(rowKey(DEMO_EXTRACTIONS[0]));
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[var(--bg-page)]">
-      {/* Header */}
       <header className="border-b border-[var(--border)] px-6 py-3">
-        <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <span className="text-[11px] text-[var(--text-muted)]">trm-umls</span>
+        <div className="mx-auto flex max-w-3xl items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] text-[var(--text-muted)]">trm-umls</span>
+            <span className="text-[10px] text-[var(--text-faint)]">·</span>
+            <span className="text-[11px] text-[var(--text-faint)]">{apiLabel}</span>
+          </div>
           <a
             href="/"
             className="text-[11px] text-[var(--text-muted)] hover:text-[var(--text-primary)]"
@@ -24,294 +128,423 @@ export default function Methodology() {
         </div>
       </header>
 
-      {/* Article */}
-      <article className="max-w-3xl mx-auto px-6 py-12 prose">
-        <h1 className="text-2xl font-semibold text-[var(--text-primary)] mb-2">
+      <article className="prose mx-auto max-w-3xl px-6 py-12">
+        <h1 className="mb-2 text-2xl font-semibold text-[var(--text-primary)]">
           How trm-umls works
         </h1>
-        <p className="text-[var(--text-muted)] text-sm mb-8">
-          A small embedding-distilled UMLS concept linker for clinical text.
+        <p className="mb-8 text-sm text-[var(--text-muted)]">
+          A small embedding-distilled UMLS concept linker for clinical text, built to stay local.
         </p>
 
         <hr />
 
-        <h2>The problem</h2>
+        <h2>what you are trying to do</h2>
         <p>
-          Clinical notes are full of medical terms, abbreviations, and jargon. "HTN", "DM", "COPD" 
-          all mean something specific, but they need to be linked to standardized concepts 
-          for downstream analytics, billing, or clinical decision support.
+          You start with free text. You want to end with a{" "}
+          <strong>span</strong> (where in the note the text came from) and a{" "}
+          <strong>concept id</strong> (a UMLS CUI), plus a few clinical attributes like
+          whether it is present vs denied.
         </p>
         <p>
-          UMLS contains over 1 million medical concepts. The challenge is matching messy 
-          clinical text to the right concept quickly and accurately.
+          The hard part is that clinical notes are messy. They contain abbreviations, partial
+          phrases, and context that flips meaning:
+        </p>
+        <pre>
+          <code>{`"Denies chest pain"  → chest pain (ABSENT)
+"FHx: breast cancer" → breast cancer (FAMILY)
+"COPD" → chronic obstructive pulmonary disease`}</code>
+        </pre>
+
+        <h2>the core idea (retrieval-first)</h2>
+        <p>
+          trm-umls does not try to cram UMLS into a huge generative model. Instead it uses
+          a <em>tiny retriever</em> that maps text into a high-quality embedding space, then
+          uses nearest-neighbor search to look up the closest UMLS concept.
+        </p>
+        <p>
+          The teacher embedding space is <code>SapBERT</code>. We embed every UMLS concept once,
+          build a FAISS index, then train a small student encoder (about 9.8M parameters) to
+          land in the same neighborhood as the teacher for short clinical spans.
         </p>
 
-        <h2>The approach</h2>
+        <h2>try it now (live when available)</h2>
         <p>
-          Instead of building a massive model that "knows" UMLS, we took a different path:
-        </p>
-        <blockquote>
-          Train a small model to produce embeddings in the same space as a strong teacher. 
-          Let nearest-neighbor search do the concept lookup.
-        </blockquote>
-        <p>
-          The teacher is <code>SapBERT</code>, a biomedical embedding model. We embedded all 
-          1.16 million UMLS concepts once, built a FAISS index, then trained a tiny student 
-          model (9.8M params vs SapBERT's 110M) to project clinical text into that same space.
+          This panel runs locally. When the api is connected it uses the real pipeline. When it
+          is not, it falls back to a small offline demo so you can still see the flow.
         </p>
 
-        <h2>Step by step</h2>
-        <p>
-          Here's what happens when you paste a note. Try clicking through the stages:
-        </p>
-
-        {/* Interactive example */}
-        <div className="my-6 border border-[var(--border)] rounded overflow-hidden">
-          <div className="flex border-b border-[var(--border)] bg-[var(--bg-surface)]">
-            {(["input", "spans", "output"] as const).map((tab) => (
+        <div className="my-6 overflow-hidden rounded border border-[var(--border)]">
+          <div className="flex items-center gap-3 border-b border-[var(--border)] bg-[var(--bg-surface)] px-4 py-2">
+            <div className="text-[11px] font-semibold text-[var(--text-primary)]">
+              walkthrough
+            </div>
+            <div className="ml-auto flex items-center gap-2">
               <button
-                key={tab}
-                onClick={() => setActiveExample(tab)}
                 className={cx(
-                  "px-4 py-2 text-xs font-medium transition-colors",
-                  activeExample === tab
-                    ? "text-[var(--text-primary)] bg-[var(--bg-elevated)]"
-                    : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  "rounded px-2 py-1 text-[10px] font-medium transition-colors",
+                  usingLive ? "bg-[var(--text-primary)] text-[var(--bg-page)]" : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
                 )}
+                onClick={() => setLive(true)}
+                title="use the local api when available"
               >
-                {tab === "input" && "1. Input"}
-                {tab === "spans" && "2. Spans"}
-                {tab === "output" && "3. Output"}
+                live
               </button>
-            ))}
+              <button
+                className={cx(
+                  "rounded px-2 py-1 text-[10px] font-medium transition-colors",
+                  !live ? "bg-[var(--text-primary)] text-[var(--bg-page)]" : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
+                )}
+                onClick={() => setLive(false)}
+                title="force demo mode"
+              >
+                demo
+              </button>
+              <span className="text-[10px] text-[var(--text-faint)]">·</span>
+              <button
+                className="inline-flex items-center gap-1 rounded px-2 py-1 text-[10px] font-medium text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                onClick={() => void runExample()}
+                disabled={busy}
+              >
+                {busy ? <Pulse size={12} className="animate-pulse" /> : <Play size={12} weight="fill" />}
+                run
+              </button>
+            </div>
           </div>
-          <div className="p-4 bg-[var(--bg-elevated)]">
-            {activeExample === "input" && (
-              <div>
-                <p className="text-xs text-[var(--text-muted)] mb-2">Raw clinical text:</p>
-                <pre className="text-sm font-mono text-[var(--text-body)] whitespace-pre-wrap">
-{`Assessment: hypertension, diabetes mellitus, COPD.
-Denies chest pain or shortness of breath at rest.`}
-                </pre>
+
+          <div className="border-b border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-3">
+            <div className="flex flex-wrap items-center gap-2">
+              {(
+                [
+                  ["input", "1. input"],
+                  ["mentions", "2. mentions"],
+                  ["candidates", "3. retrieval"],
+                  ["output", "4. output"],
+                  ["math", "5. math"],
+                ] as Array<[Tab, string]>
+              ).map(([k, label]) => (
+                <button
+                  key={k}
+                  onClick={() => setTab(k)}
+                  className={cx(
+                    "rounded px-2.5 py-1 text-[11px] font-medium transition-colors",
+                    tab === k
+                      ? "bg-[var(--bg-surface)] text-[var(--text-primary)]"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+              <div className="ml-auto text-[10px] text-[var(--text-faint)]">
+                threshold <span className="font-mono">{options.threshold.toFixed(2)}</span> · top-k{" "}
+                <span className="font-mono">{options.top_k}</span>
               </div>
-            )}
-            {activeExample === "spans" && (
+            </div>
+          </div>
+
+          <div className="bg-[var(--bg-elevated)] p-4">
+            {tab === "input" ? (
               <div>
-                <p className="text-xs text-[var(--text-muted)] mb-2">
-                  NER teachers propose candidate spans:
-                </p>
-                <div className="space-y-1">
-                  {["hypertension", "diabetes mellitus", "COPD", "chest pain", "shortness of breath at rest"].map((span) => (
-                    <span
-                      key={span}
-                      className="inline-block mr-2 px-2 py-1 bg-[var(--bg-surface)] rounded text-xs font-mono"
-                    >
-                      {span}
-                    </span>
-                  ))}
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                  note text
+                </div>
+                <textarea
+                  value={exampleText}
+                  onChange={(e) => setExampleText(e.target.value)}
+                  rows={4}
+                  className="w-full resize-none rounded border border-[var(--border)] bg-[var(--bg-elevated)] px-3 py-2 font-mono text-[12px] leading-relaxed text-[var(--text-primary)] outline-none focus:border-[var(--border-strong)]"
+                  spellCheck={false}
+                />
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                      threshold
+                    </div>
+                    <input
+                      type="range"
+                      min={0.35}
+                      max={0.9}
+                      step={0.01}
+                      value={options.threshold}
+                      onChange={(e) =>
+                        setOptions((o) => ({ ...o, threshold: Number(e.target.value) }))
+                      }
+                      className="mt-2 w-full"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                      lexical weight
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={0.8}
+                      step={0.01}
+                      value={options.lexical_weight ?? 0.3}
+                      onChange={(e) =>
+                        setOptions((o) => ({ ...o, lexical_weight: Number(e.target.value) }))
+                      }
+                      className="mt-2 w-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-3 text-[11px] text-[var(--text-muted)]">
+                  tip: turn on <span className="font-mono">candidates</span> in the extractor UI when you want to inspect reranking.
                 </div>
               </div>
-            )}
-            {activeExample === "output" && (
+            ) : null}
+
+            {tab === "mentions" ? (
               <div>
-                <p className="text-xs text-[var(--text-muted)] mb-2">
-                  Structured extractions with CUIs and assertions:
-                </p>
-                <table className="w-full text-xs">
-                  <thead>
-                    <tr className="border-b border-[var(--border)]">
-                      <th className="text-left py-1 font-medium text-[var(--text-muted)]">span</th>
-                      <th className="text-left py-1 font-medium text-[var(--text-muted)]">CUI</th>
-                      <th className="text-left py-1 font-medium text-[var(--text-muted)]">assertion</th>
-                    </tr>
-                  </thead>
-                  <tbody className="font-mono">
-                    <tr><td className="py-1">hypertension</td><td className="text-[var(--text-muted)]">C3280772</td><td className="text-[#166534]">PRESENT</td></tr>
-                    <tr><td className="py-1">diabetes mellitus</td><td className="text-[var(--text-muted)]">C0011849</td><td className="text-[#166534]">PRESENT</td></tr>
-                    <tr><td className="py-1">chest pain</td><td className="text-[var(--text-muted)]">C0008031</td><td className="text-[#b91c1c]">ABSENT</td></tr>
-                  </tbody>
-                </table>
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                  extracted spans
+                </div>
+                <div className="space-y-2">
+                  {rows.length ? (
+                    rows.map((r) => {
+                      const key = rowKey(r);
+                      const on = selected === key;
+                      return (
+                        <button
+                          key={key}
+                          className={cx(
+                            "w-full rounded border px-3 py-2 text-left transition-colors",
+                            on
+                              ? "border-[var(--border-strong)] bg-[var(--bg-surface)]"
+                              : "border-[var(--border)] bg-[var(--bg-elevated)] hover:bg-[var(--bg-hover)]",
+                          )}
+                          onClick={() => setSelected(key)}
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            <div className="min-w-0">
+                              <div className="truncate font-mono text-[12px] text-[var(--text-primary)]">
+                                {r.text}
+                              </div>
+                              <div className="mt-0.5 truncate text-[11px] text-[var(--text-muted)]">
+                                normalized: <span className="font-mono">{r.normalized_text}</span>
+                              </div>
+                            </div>
+                            <div className="shrink-0 text-right">
+                              <div className="font-mono text-[11px] text-[var(--text-muted)]">
+                                {r.score.toFixed(3)}
+                              </div>
+                              <div className="mt-0.5 text-[10px] text-[var(--text-faint)]">
+                                {r.semantic_group} · {r.assertion}
+                              </div>
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })
+                  ) : (
+                    <div className="text-[11px] text-[var(--text-muted)]">no spans returned.</div>
+                  )}
+                </div>
               </div>
-            )}
+            ) : null}
+
+            {tab === "candidates" ? (
+              <div>
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                  retrieval + rerank
+                </div>
+                {!selectedRow ? (
+                  <div className="text-[11px] text-[var(--text-muted)]">select a span in “mentions”.</div>
+                ) : !candidates ? (
+                  <div className="text-[11px] text-[var(--text-muted)]">
+                    no candidate list available for this span. enable candidates and rerun.
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-3">
+                      <div className="font-mono text-[12px] text-[var(--text-primary)]">{selectedRow.text}</div>
+                      <div className="text-[11px] text-[var(--text-muted)]">
+                        we embed the normalized span, run FAISS top-k, then rerank inside a small margin.
+                      </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded border border-[var(--border)]">
+                      <table className="w-full text-[11px]">
+                        <thead className="bg-[var(--bg-surface)] text-[10px] uppercase tracking-wide text-[var(--text-muted)]">
+                          <tr>
+                            <th className="px-3 py-2 text-left">rank</th>
+                            <th className="px-3 py-2 text-left">cui</th>
+                            <th className="px-3 py-2 text-left">preferred term</th>
+                            <th className="px-3 py-2 text-right">sim</th>
+                            <th className="px-3 py-2 text-right">lex</th>
+                            <th className="px-3 py-2 text-right">bias</th>
+                            <th className="px-3 py-2 text-right">pen</th>
+                            <th className="px-3 py-2 text-right">rerank</th>
+                          </tr>
+                        </thead>
+                        <tbody className="font-mono">
+                          {candidates.map((c) => (
+                            <tr key={`${c.rank}:${c.cui}`} className="border-t border-[var(--border)]">
+                              <td className="px-3 py-2 text-[var(--text-muted)]">{c.rank}</td>
+                              <td className="px-3 py-2 text-[var(--text-muted)]">{c.cui}</td>
+                              <td className="px-3 py-2 font-sans text-[var(--text-primary)]">
+                                {c.preferred_term}
+                                <span className="ml-2 text-[10px] text-[var(--text-faint)]">
+                                  {c.tui} · {c.semantic_group}
+                                </span>
+                              </td>
+                              <td className="px-3 py-2 text-right text-[var(--text-muted)]">{c.score.toFixed(3)}</td>
+                              <td className="px-3 py-2 text-right text-[var(--text-muted)]">{c.lex.toFixed(3)}</td>
+                              <td className="px-3 py-2 text-right text-[var(--text-muted)]">{c.bias.toFixed(3)}</td>
+                              <td className="px-3 py-2 text-right text-[var(--text-muted)]">{c.penalty.toFixed(3)}</td>
+                              <td className="px-3 py-2 text-right text-[var(--text-primary)]">{c.rerank_score.toFixed(3)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : null}
+
+            {tab === "output" ? (
+              <div>
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                  structured output
+                </div>
+                <div className="overflow-hidden rounded border border-[var(--border)]">
+                  <table className="w-full text-[11px]">
+                    <thead className="bg-[var(--bg-surface)] text-[10px] uppercase tracking-wide text-[var(--text-muted)]">
+                      <tr>
+                        <th className="px-3 py-2 text-left">span</th>
+                        <th className="px-3 py-2 text-left">cui</th>
+                        <th className="px-3 py-2 text-left">assertion</th>
+                        <th className="px-3 py-2 text-right">score</th>
+                      </tr>
+                    </thead>
+                    <tbody className="font-mono">
+                      {rows.map((r) => (
+                        <tr key={rowKey(r)} className="border-t border-[var(--border)]">
+                          <td className="px-3 py-2 text-[var(--text-primary)]">{r.text}</td>
+                          <td className="px-3 py-2 text-[var(--text-muted)]">{r.cui}</td>
+                          <td className="px-3 py-2 text-[var(--text-muted)]">{r.assertion}</td>
+                          <td className="px-3 py-2 text-right text-[var(--text-muted)]">{r.score.toFixed(3)}</td>
+                        </tr>
+                      ))}
+                      {!rows.length ? (
+                        <tr>
+                          <td className="px-3 py-3 text-[11px] text-[var(--text-muted)]" colSpan={4}>
+                            no extractions returned.
+                          </td>
+                        </tr>
+                      ) : null}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ) : null}
+
+            {tab === "math" ? (
+              <div className="space-y-4">
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    cosine similarity
+                  </div>
+                  <div className="rounded border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-3 text-[12px] text-[var(--text-primary)]">
+                    <Latex display tex={"\\cos(\\theta)=\\frac{\\mathbf{x}\\cdot\\mathbf{y}}{\\lVert\\mathbf{x}\\rVert\\,\\lVert\\mathbf{y}\\rVert}"} />
+                  </div>
+                  <p className="mt-2 text-[11px] text-[var(--text-muted)]">
+                    The retriever produces a vector for the span. FAISS returns concept vectors with the highest cosine similarity.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    rerank score (within top-k)
+                  </div>
+                  <div className="rounded border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-3 text-[12px] text-[var(--text-primary)]">
+                    <Latex
+                      display
+                      tex={"s' = s + w_{lex}\\,J(\\text{span},\\text{term}) + b_{tui} + b_{group} + p(\\text{term}) + w_{rel}\\,h"}
+                    />
+                  </div>
+                  <p className="mt-2 text-[11px] text-[var(--text-muted)]">
+                    This only reorders inside a small margin near the best FAISS hit. It is designed as a tie-breaker, not a replacement for embedding similarity.
+                  </p>
+                </div>
+
+                <div>
+                  <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--text-muted)]">
+                    distillation objective (simplified)
+                  </div>
+                  <div className="rounded border border-[var(--border)] bg-[var(--bg-surface)] px-3 py-3 text-[12px] text-[var(--text-primary)]">
+                    <Latex display tex={"\\mathcal{L}=\\lVert f_{student}(x) - f_{teacher}(x) \\rVert_2^2"} />
+                  </div>
+                  <p className="mt-2 text-[11px] text-[var(--text-muted)]">
+                    The student is trained so that the vector it produces for the same span points in the same direction as the teacher.
+                  </p>
+                </div>
+              </div>
+            ) : null}
           </div>
+
+          {api.kind === "offline" ? (
+            <div className="border-t border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-[11px] text-[var(--text-muted)]">
+              <div className="flex items-start gap-2">
+                <WarningCircle size={14} weight="fill" className="mt-0.5 shrink-0" />
+                <div className="min-w-0">
+                  <div className="text-[11px] text-[var(--text-muted)]">
+                    api not reachable. start it with{" "}
+                    <span className="font-mono text-[var(--text-primary)]">python3 -m trm_umls.api</span>.
+                  </div>
+                  <div className="mt-1 text-[10px] text-[var(--text-faint)]">
+                    this page is showing a small offline demo output.
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {error ? (
+            <div className="border-t border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-[11px] text-[var(--error)]">
+              {error}
+            </div>
+          ) : null}
         </div>
 
+        <h2>sapbert in one paragraph</h2>
         <p>
-          The key insight: <strong>"HTN"</strong>, <strong>"hypertension"</strong>, and{" "}
-          <strong>"high blood pressure"</strong> all land near the same point in embedding space. 
-          FAISS finds the nearest UMLS concept vector, and that's the linked CUI.
+          SapBERT is a BERT-style encoder trained so that different surface forms of the same UMLS concept
+          (synonyms) are embedded close together. That makes it a strong teacher for concept retrieval.
+          If the teacher already clusters “htn” and “hypertension”, the student only has to learn to land in that cluster.
         </p>
 
-        <h2>The embedding space</h2>
+        <h2>what “tiny retriever model” means here</h2>
         <p>
-          Think of it as a 768-dimensional room where every medical concept has a location. 
-          Similar meanings cluster together:
+          It is not a generative model and it is not doing multi-step reasoning. It is a small text encoder that outputs a single vector.
+          That vector is used as a key into a large index that holds the knowledge (UMLS).
         </p>
 
-        <div className="my-6 p-4 bg-[var(--bg-surface)] rounded border border-[var(--border)] font-mono text-xs">
-          <div className="text-[var(--text-muted)] mb-3">768-dimensional embedding space</div>
-          <div className="space-y-3">
-            <div>
-              <span className="text-[#b45309]">Hypertension cluster:</span>
-              <span className="text-[var(--text-body)] ml-2">HTN · hypertension · high blood pressure · elevated BP</span>
-            </div>
-            <div>
-              <span className="text-[#166534]">Diabetes cluster:</span>
-              <span className="text-[var(--text-body)] ml-2">DM · diabetes · diabetes mellitus · type 2 DM</span>
-            </div>
-            <div>
-              <span className="text-[#0d7377]">Pain cluster:</span>
-              <span className="text-[var(--text-body)] ml-2">chest pain · CP · angina · chest discomfort</span>
-            </div>
-          </div>
-        </div>
-
-        <p>
-          When a clinician writes "htn" in a note, the student model projects it near the 
-          hypertension cluster, and FAISS returns C0020538.
-        </p>
-
-        <h2>Why this works</h2>
-        <p>
-          The student model doesn't need to "know" UMLS. It only needs to project text into 
-          the right neighborhood. This is why a 9.8M parameter model can match a 110M 
-          parameter teacher—it's not defining the space, just learning to navigate it.
-        </p>
-
-        <h3>Teacher validation</h3>
-        <p>
-          We tested the teacher space (SapBERT) on 20,000 synonym queries:
-        </p>
-        <table>
-          <thead>
-            <tr>
-              <th>metric</th>
-              <th>SapBERT</th>
-              <th>BGE-M3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>hit@1</td>
-              <td><strong>95.4%</strong></td>
-              <td>88.5%</td>
-            </tr>
-            <tr>
-              <td>hit@5</td>
-              <td><strong>97.5%</strong></td>
-              <td>92.6%</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          This ceiling bounds what the student can achieve. When the teacher gets it right 
-          95% of the time, that's the best case for distillation.
-        </p>
-
-        <h2>Reranking</h2>
-        <p>
-          Sometimes FAISS returns multiple close candidates. "Hypertension" could match 
-          several CUIs: general hypertension, pulmonary hypertension, portal hypertension.
-        </p>
-        <p>
-          Reranking adjusts scores using:
-        </p>
+        <h2>what the system returns</h2>
         <ul className="list-disc list-inside space-y-1 text-[var(--text-body)]">
-          <li>Lexical overlap (does the preferred term match the span?)</li>
-          <li>Semantic group bias (disorders get a small boost over abstract concepts)</li>
-          <li>Variant penalties (CTCAE-specific variants get penalized)</li>
-        </ul>
-        <p>
-          These are tie-breakers, not overrides. A clearly better embedding match always wins.
-        </p>
-
-        <h2>Assertion detection</h2>
-        <p>
-          Linking "chest pain" to C0008031 isn't enough. The note says{" "}
-          <em>"denies chest pain"</em>—that's an <strong>absent</strong> finding, not present.
-        </p>
-        <p>
-          A small classification head predicts assertion (PRESENT / ABSENT / POSSIBLE) and 
-          subject (PATIENT / FAMILY / OTHER). Rule-based overrides catch common patterns 
-          like "denies", "no history of", "family history of".
-        </p>
-
-        <h2>What you get</h2>
-        <p>
-          Each extraction includes:
-        </p>
-        <ul className="list-disc list-inside space-y-1 text-[var(--text-body)]">
-          <li>Span text and character offsets</li>
-          <li>CUI and preferred term</li>
-          <li>Semantic type (TUI) and group</li>
-          <li>Similarity score (threshold at 0.55 by default)</li>
-          <li>Assertion: present, absent, or possible</li>
-          <li>Subject: patient, family, or other</li>
+          <li>span text and character offsets</li>
+          <li>cui and preferred term</li>
+          <li>semantic type (tui) and semantic group</li>
+          <li>similarity score + optional candidate list (debug)</li>
+          <li>assertion (present / absent / possible) and subject (patient / family / other)</li>
         </ul>
 
-        <hr />
-
-        <h2>Numbers</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>Model parameters</td>
-              <td className="font-mono">9,864,198</td>
-            </tr>
-            <tr>
-              <td>UMLS concepts indexed</td>
-              <td className="font-mono">1,164,238</td>
-            </tr>
-            <tr>
-              <td>Embedding dimensions</td>
-              <td className="font-mono">768</td>
-            </tr>
-            <tr>
-              <td>FAISS clusters</td>
-              <td className="font-mono">2,048</td>
-            </tr>
-            <tr>
-              <td>Throughput (RTX 3070)</td>
-              <td className="font-mono">129 rows/sec</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <hr />
-
-        <h2>Limitations</h2>
+        <h2>where this tends to fail</h2>
         <p>
-          No gold-standard labeled dataset was available. The evaluation numbers are behavior 
-          metrics (row counts, score distributions), not accuracy metrics. Building a small 
-          gold set is the next step.
-        </p>
-        <p>
-          Common failure patterns:
-        </p>
-        <ul className="list-disc list-inside space-y-1 text-[var(--text-body)]">
-          <li>Template leakage (section headers matching concepts)</li>
-          <li>Abbreviation collisions ("BUN" has multiple meanings)</li>
-          <li>Negation scope errors ("no HTN, DM, or CAD" → only first negated)</li>
-        </ul>
-
-        <hr />
-
-        <h2>Try it</h2>
-        <p>
-          Head back to the <a href="/" className="text-[var(--text-primary)] underline">extractor</a> to 
-          paste clinical text and see extractions in real time. Toggle between original spans 
-          and preferred terminology to see the linking in action.
+          You will mostly see issues around span boundaries (too short, too long) and disambiguation between close concepts.
+          The pipeline has guardrails (header stoplist, short-span rules, rerank margin) but it will not be perfect without a gold set.
         </p>
 
         <hr />
 
-        <div className="text-xs text-[var(--text-muted)] mt-8">
+        <div className="mt-8 text-xs text-[var(--text-muted)]">
           <p className="mb-2">Citation:</p>
           <pre className="text-[10px]">
 {`@misc{qassemf2026trmumls,
   author = {Qassemf, Layth M.},
-  title = {trm-umls: a small embedding-distilled 
-           umls concept linker for clinical text},
+  title = {trm-umls: a small embedding-distilled umls concept linker for clinical text},
   year = {2026}
 }`}
           </pre>
@@ -320,3 +553,8 @@ Denies chest pain or shortness of breath at rest.`}
     </div>
   );
 }
+
+function rowKey(r: ConceptExtraction): string {
+  return `${r.start}:${r.end}:${r.cui}:${r.assertion}:${r.subject}`;
+}
+
