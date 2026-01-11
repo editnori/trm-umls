@@ -75,11 +75,30 @@ export default function Methodology() {
   }, []);
 
   useEffect(() => {
+    const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral";
     mermaid.initialize({
       startOnLoad: false,
-      theme: document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral",
+      theme,
       securityLevel: "strict",
     });
+  }, []);
+
+  // Re-initialize mermaid when theme changes
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.attributeName === "data-theme") {
+          const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "neutral";
+          mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict" });
+          if (articleRef.current) {
+            const nodes = Array.from(articleRef.current.querySelectorAll(".mermaid")) as HTMLElement[];
+            if (nodes.length) mermaid.run({ nodes });
+          }
+        }
+      }
+    });
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -113,6 +132,21 @@ export default function Methodology() {
 
   const canRunLive = api.kind === "ready";
   const usingLive = live && canRunLive;
+
+  // Auto-run when API becomes ready
+  useEffect(() => {
+    if (api.kind !== "ready") return;
+    if (!live) return;
+    void runExample({ auto: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [api.kind]);
+
+  // Auto-select first extraction if none selected
+  useEffect(() => {
+    if (!selected && rows.length > 0) {
+      setSelected(rowKey(rows[0]));
+    }
+  }, [rows, selected]);
 
   const selectedRow = useMemo(() => {
     if (!selected) return null;
