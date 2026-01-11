@@ -10,31 +10,31 @@ function baseBadge(extra: string): string {
 export function assertionBadgeClass(a: Assertion): string {
   switch (a) {
     case "PRESENT":
-      return baseBadge("border-emerald-400/20 bg-emerald-600/20 text-emerald-100");
+      return baseBadge("border-emerald-400/18 bg-emerald-600/14 text-emerald-100");
     case "ABSENT":
-      return baseBadge("border-rose-400/20 bg-rose-600/20 text-rose-100");
+      return baseBadge("border-rose-400/18 bg-rose-600/14 text-rose-100");
     case "POSSIBLE":
-      return baseBadge("border-amber-400/20 bg-amber-600/20 text-amber-100");
+      return baseBadge("border-amber-400/18 bg-amber-600/14 text-amber-100");
   }
 }
 
 export function groupBadgeClass(g: SemanticGroup): string {
   const extra = {
-    DISO: "border-fuchsia-400/20 bg-fuchsia-600/20 text-fuchsia-100",
-    CHEM: "border-cyan-400/20 bg-cyan-600/20 text-cyan-100",
-    PROC: "border-amber-400/20 bg-amber-600/20 text-amber-100",
-    ANAT: "border-emerald-400/20 bg-emerald-600/20 text-emerald-100",
-    PHEN: "border-lime-400/20 bg-lime-600/20 text-lime-100",
-    PHYS: "border-sky-400/20 bg-sky-600/20 text-sky-100",
-    GENE: "border-indigo-400/20 bg-indigo-600/20 text-indigo-100",
-    CONC: "border-slate-400/20 bg-slate-600/20 text-slate-100",
-    ACTI: "border-violet-400/20 bg-violet-600/20 text-violet-100",
-    DEVI: "border-teal-400/20 bg-teal-600/20 text-teal-100",
-    GEOG: "border-blue-400/20 bg-blue-600/20 text-blue-100",
-    LIVB: "border-pink-400/20 bg-pink-600/20 text-pink-100",
-    OBJC: "border-slate-400/20 bg-slate-600/20 text-slate-100",
-    OCCU: "border-slate-400/20 bg-slate-600/20 text-slate-100",
-    ORGA: "border-slate-400/20 bg-slate-600/20 text-slate-100",
+    DISO: "border-fuchsia-400/18 bg-fuchsia-600/14 text-fuchsia-100",
+    CHEM: "border-cyan-400/18 bg-cyan-600/14 text-cyan-100",
+    PROC: "border-amber-400/18 bg-amber-600/14 text-amber-100",
+    ANAT: "border-emerald-400/18 bg-emerald-600/14 text-emerald-100",
+    PHEN: "border-lime-400/18 bg-lime-600/14 text-lime-100",
+    PHYS: "border-sky-400/18 bg-sky-600/14 text-sky-100",
+    GENE: "border-indigo-400/18 bg-indigo-600/14 text-indigo-100",
+    CONC: "border-slate-400/18 bg-slate-600/14 text-slate-100",
+    ACTI: "border-violet-400/18 bg-violet-600/14 text-violet-100",
+    DEVI: "border-teal-400/18 bg-teal-600/14 text-teal-100",
+    GEOG: "border-blue-400/18 bg-blue-600/14 text-blue-100",
+    LIVB: "border-pink-400/18 bg-pink-600/14 text-pink-100",
+    OBJC: "border-slate-400/18 bg-slate-600/14 text-slate-100",
+    OCCU: "border-slate-400/18 bg-slate-600/14 text-slate-100",
+    ORGA: "border-slate-400/18 bg-slate-600/14 text-slate-100",
   }[g];
   return baseBadge(extra ?? "border-slate-700 bg-slate-800 text-slate-200");
 }
@@ -61,4 +61,3 @@ export function groupMarkClass(g: SemanticGroup): string {
       return "bg-slate-600/25 hover:bg-slate-600/35";
   }
 }
-

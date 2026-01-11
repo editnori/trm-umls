@@ -1,12 +1,10 @@
-import { useMemo, useRef, useState } from "react";
-import { extractBatch, extractSingle } from "./api";
-import type {
-  Assertion,
-  ConceptExtraction,
-  ExtractOptions,
-  NoteResult,
-  SemanticGroup,
-} from "./types";
+import { CloudArrowUp, Copy, DownloadSimple, FileText, Play, Pulse, WarningCircle } from "@phosphor-icons/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { extractBatch, extractSingle, getHealth } from "./api";
+import { cx } from "./components/cx";
+import { Card, Button, Pill, Stepper, Switch, Textarea } from "./components/ui";
+import { downloadCsv, downloadXlsx } from "./export";
+import type { Assertion, ConceptExtraction, ExtractOptions, NoteResult, SemanticGroup } from "./types";
 import { assertionBadgeClass, groupBadgeClass, groupMarkClass } from "./ui_colors";
 import { buildSegmentsNonOverlapping } from "./ui_highlight";
 
@@ -20,13 +18,14 @@ const DEFAULT_OPTIONS: ExtractOptions = {
   relation_rerank: false,
 };
 
-function App() {
+export default function App() {
   const [options, setOptions] = useState<ExtractOptions>(DEFAULT_OPTIONS);
   const [text, setText] = useState<string>(
     "Assessment: HTN, DM, COPD. Severe left knee pain.\nDenies chest pain or shortness of breath at rest.\nFamily history: breast cancer in mother.",
   );
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [apiOk, setApiOk] = useState<null | { ok: boolean; loaded: boolean }>(null);
 
   const [results, setResults] = useState<NoteResult[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -41,22 +40,19 @@ function App() {
   const [query, setQuery] = useState("");
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const active = useMemo(() => results.find((r) => r.id === activeId) ?? null, [results, activeId]);
 
   const availableGroups = useMemo(() => {
     const out = new Set<string>();
-    for (const r of results) {
-      for (const e of r.extractions) out.add(e.semantic_group);
-    }
+    for (const r of results) for (const e of r.extractions) out.add(e.semantic_group);
     return Array.from(out).sort();
   }, [results]);
 
   const availableAssertions = useMemo(() => {
     const out = new Set<Assertion>();
-    for (const r of results) {
-      for (const e of r.extractions) out.add(e.assertion);
-    }
+    for (const r of results) for (const e of r.extractions) out.add(e.assertion);
     return Array.from(out).sort();
   }, [results]);
 
@@ -95,6 +91,24 @@ function App() {
     return buildSegmentsNonOverlapping(active.text, filteredExtractions);
   }, [active, filteredExtractions]);
 
+  useEffect(() => {
+    let mounted = true;
+    async function tick() {
+      try {
+        const h = await getHealth();
+        if (mounted) setApiOk(h);
+      } catch {
+        if (mounted) setApiOk({ ok: false, loaded: false });
+      }
+    }
+    void tick();
+    const id = window.setInterval(tick, 5000);
+    return () => {
+      mounted = false;
+      window.clearInterval(id);
+    };
+  }, []);
+
   async function runFromText() {
     setBusy(true);
     setError(null);
@@ -112,8 +126,8 @@ function App() {
       setResults([next]);
       setActiveId(id);
       setGroupFilter((prev) => hydrateGroupFilter(prev, next.extractions));
-    } catch (e: any) {
-      setError(e?.message ?? String(e));
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy(false);
     }
@@ -148,8 +162,8 @@ function App() {
       setResults(merged);
       setActiveId(merged[0]?.id ?? null);
       setGroupFilter((prev) => hydrateGroupFilter(prev, merged.flatMap((m) => m.extractions)));
-    } catch (e: any) {
-      setError(e?.message ?? String(e));
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy(false);
     }
@@ -157,89 +171,120 @@ function App() {
 
   return (
     <div className="min-h-full">
-      <header className="border-b border-slate-800 bg-slate-950/60 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="space-y-1">
-            <div className="text-lg font-semibold tracking-tight">trm-umls viewer</div>
-            <div className="text-sm text-slate-400">
-              paste a note or upload files. results stay local.
+      <header className="sticky top-0 z-20 border-b border-white/5 bg-slate-950/65 backdrop-blur">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-slate-950/40">
+              <Pulse size={18} className="text-sky-300" />
+            </div>
+            <div className="min-w-0">
+              <div className="truncate text-sm font-semibold tracking-tight text-slate-100">trm-umls</div>
+              <div className="truncate text-xs text-slate-400">local concept extraction + cui linking</div>
             </div>
           </div>
-          <a className="text-sm" href="https://github.com/editnori" target="_blank" rel="noreferrer">
-            github
-          </a>
+          <div className="flex items-center gap-3">
+            <StatusPill apiOk={apiOk} />
+            <a
+              className="text-sm text-slate-300 hover:text-slate-100"
+              href="https://github.com/editnori/trm-umls"
+              target="_blank"
+              rel="noreferrer"
+            >
+              docs
+            </a>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-6xl gap-6 px-4 py-6 lg:grid-cols-2">
-        <section className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
-            <div className="flex items-center justify-between">
-              <div className="text-sm font-semibold text-slate-200">input</div>
-              <div className="text-xs text-slate-400">
-                api: {import.meta.env.VITE_API_BASE ?? "http://127.0.0.1:8000"}
+      <main className="mx-auto grid max-w-[1200px] gap-4 px-4 py-4 lg:grid-cols-[360px_1fr] xl:grid-cols-[360px_1fr_420px]">
+        <aside className="space-y-4">
+          <Card
+            title="input"
+            subtitle="paste a note or drop files. nothing is uploaded anywhere."
+            right={
+              <div className="text-xs text-slate-500">
+                api{" "}
+                <span className="font-mono tabular-nums text-slate-400">
+                  {(import.meta.env.VITE_API_BASE as string | undefined) ?? "http://127.0.0.1:8000"}
+                </span>
               </div>
-            </div>
-
-            <div className="mt-3 space-y-3">
-              <textarea
-                className="h-56 w-full resize-none rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 font-mono text-sm leading-6 text-slate-100 outline-none focus:border-slate-600"
+            }
+          >
+            <div className="space-y-3">
+              <Textarea
+                ref={textareaRef}
                 value={text}
-                onChange={(e) => setText(e.target.value)}
-                spellCheck={false}
+                onChange={setText}
+                rows={12}
+                className="resize-none"
+                placeholder="paste clinical text here…"
+                onKeyDown={(e) => {
+                  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") void runFromText();
+                }}
               />
 
-              <div className="flex flex-wrap items-center gap-3">
-                <label className="text-sm text-slate-300">
-                  threshold
-                  <input
-                    className="ml-2 w-24 rounded-md border border-slate-800 bg-slate-950/60 px-2 py-1 text-sm"
-                    type="number"
-                    step="0.01"
+              <div className="grid gap-2">
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <Stepper
+                    label="threshold"
+                    value={options.threshold}
+                    onChange={(v) => setOptions((o) => ({ ...o, threshold: round2(clamp(v, 0, 1)) }))}
+                    step={0.01}
                     min={0}
                     max={1}
-                    value={options.threshold}
-                    onChange={(e) => setOptions((o) => ({ ...o, threshold: clamp01(e.target.value) }))}
+                    format={(v) => v.toFixed(2)}
                   />
-                </label>
-
-                <label className="text-sm text-slate-300">
-                  top-k
-                  <input
-                    className="ml-2 w-20 rounded-md border border-slate-800 bg-slate-950/60 px-2 py-1 text-sm"
-                    type="number"
-                    step="1"
+                  <Stepper
+                    label="top-k"
+                    value={options.top_k}
+                    onChange={(v) => setOptions((o) => ({ ...o, top_k: Math.round(clamp(v, 1, 50)) }))}
+                    step={1}
                     min={1}
                     max={50}
-                    value={options.top_k}
-                    onChange={(e) => setOptions((o) => ({ ...o, top_k: clampInt(e.target.value, 1, 50) }))}
                   />
-                </label>
-
-                <Toggle
+                </div>
+                <Switch
                   label="clinical rerank"
+                  description="adds lightweight clinical heuristics after retrieval"
                   checked={options.clinical_rerank}
                   onChange={(v) => setOptions((o) => ({ ...o, clinical_rerank: v }))}
                 />
-                <Toggle label="dedupe" checked={options.dedupe} onChange={(v) => setOptions((o) => ({ ...o, dedupe: v }))} />
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <Switch
+                    label="dedupe"
+                    description="drop overlapping duplicates"
+                    checked={options.dedupe}
+                    onChange={(v) => setOptions((o) => ({ ...o, dedupe: v }))}
+                  />
+                  <Switch
+                    label="include candidates"
+                    description="debug: include candidate list"
+                    checked={options.include_candidates}
+                    onChange={(v) => setOptions((o) => ({ ...o, include_candidates: v }))}
+                  />
+                </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <button
-                  className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500 disabled:opacity-50"
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  variant="primary"
+                  disabled={busy || text.trim().length < 1 || apiOk?.ok === false}
                   onClick={runFromText}
-                  disabled={busy || text.trim().length < 1}
+                  className="min-w-[168px]"
                 >
-                  {busy ? "running..." : "run on pasted text"}
-                </button>
+                  {busy ? <Pulse size={16} className="animate-pulse" /> : <Play size={16} />}
+                  run (⌘/ctrl+enter)
+                </Button>
 
-                <button
-                  className="rounded-lg border border-slate-700 bg-slate-950/40 px-4 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-950/70 disabled:opacity-50"
+                <Button
+                  variant="secondary"
+                  disabled={busy || apiOk?.ok === false}
                   onClick={() => fileInputRef.current?.click()}
-                  disabled={busy}
                 >
-                  run on uploaded files
-                </button>
+                  <CloudArrowUp size={16} />
+                  upload
+                </Button>
+
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -251,20 +296,78 @@ function App() {
                     e.target.value = "";
                   }}
                 />
+
+                <Button
+                  variant="ghost"
+                  disabled={busy}
+                  onClick={() => {
+                    setText("");
+                    textareaRef.current?.focus();
+                  }}
+                >
+                  clear
+                </Button>
               </div>
 
+              {apiOk?.ok === false ? (
+                <div className="rounded-lg border border-amber-400/20 bg-amber-600/10 px-3 py-2 text-xs text-amber-100">
+                  api not reachable. start it with{" "}
+                  <span className="font-mono text-amber-100/90">python3 -m trm_umls.api</span>.
+                </div>
+              ) : null}
+
               {error ? (
-                <div className="rounded-lg border border-rose-900/50 bg-rose-950/40 px-3 py-2 text-sm text-rose-200">
-                  {error}
+                <div className="rounded-lg border border-rose-900/40 bg-rose-950/35 px-3 py-2 text-sm text-rose-200">
+                  <div className="flex items-start gap-2">
+                    <WarningCircle size={18} className="mt-0.5 shrink-0 text-rose-300" />
+                    <div className="min-w-0">
+                      <div className="text-xs font-semibold uppercase tracking-wide text-rose-200">error</div>
+                      <div className="mt-1 break-words font-mono text-xs text-rose-100">{error}</div>
+                    </div>
+                  </div>
                 </div>
               ) : null}
             </div>
-          </div>
+          </Card>
 
-          <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
-            <div className="flex items-center justify-between">
-              <div className="text-sm font-semibold text-slate-200">notes</div>
-              <div className="text-xs text-slate-400">{results.length ? `${results.length} loaded` : "none loaded"}</div>
+          <Card
+            title="notes"
+            subtitle={results.length ? `${results.length} loaded` : "none loaded"}
+            right={
+              <Button
+                variant="ghost"
+                disabled={!results.length}
+                onClick={() => {
+                  setResults([]);
+                  setActiveId(null);
+                  setSelectedKey(null);
+                  setQuery("");
+                  setGroupFilter({});
+                }}
+              >
+                clear
+              </Button>
+            }
+          >
+            <div
+              className="rounded-lg border border-dashed border-white/10 bg-slate-950/25 p-3"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                if (busy || apiOk?.ok === false) return;
+                const files = e.dataTransfer.files;
+                if (files && files.length) void runFromFiles(files);
+              }}
+            >
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-slate-950/45">
+                  <FileText size={16} className="text-slate-200" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-slate-200">drop files here</div>
+                  <div className="mt-0.5 text-xs text-slate-400">or click upload above</div>
+                </div>
+              </div>
             </div>
 
             <div className="mt-3 space-y-2">
@@ -272,12 +375,11 @@ function App() {
                 results.map((r) => (
                   <button
                     key={r.id}
-                    className={[
-                      "w-full rounded-lg border px-3 py-2 text-left text-sm",
-                      r.id === activeId
-                        ? "border-sky-500/60 bg-sky-500/10 text-slate-50"
-                        : "border-slate-800 bg-slate-950/40 text-slate-200 hover:bg-slate-950/70",
-                    ].join(" ")}
+                    className={cx(
+                      "w-full rounded-lg border px-3 py-2 text-left text-sm transition-colors",
+                      "border-white/10 bg-slate-950/35 hover:bg-slate-950/55",
+                      r.id === activeId ? "ring-2 ring-sky-400/25" : "",
+                    )}
                     onClick={() => {
                       setActiveId(r.id);
                       setSelectedKey(null);
@@ -285,221 +387,206 @@ function App() {
                     }}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <div className="truncate">{r.name}</div>
-                      <div className="shrink-0 text-xs text-slate-400">
-                        {typeof r.meta?.count === "number" ? `${r.meta.count} rows` : ""}
+                      <div className="truncate text-slate-200">{r.name}</div>
+                      <div className="shrink-0 font-mono text-xs tabular-nums text-slate-400">
+                        {typeof r.meta?.count === "number" ? r.meta.count : "—"}
                       </div>
+                    </div>
+                    <div className="mt-1 flex items-center justify-between text-xs text-slate-500">
+                      <span className="truncate">{r.text.slice(0, 80).replaceAll(/\s+/g, " ")}</span>
+                      <span className="shrink-0">{typeof r.meta?.ms === "number" ? `${r.meta.ms} ms` : ""}</span>
                     </div>
                   </button>
                 ))
               ) : (
-                <div className="text-sm text-slate-400">run on text or upload notes to see results.</div>
+                <div className="text-sm text-slate-400">run on text or drop files to see results.</div>
               )}
             </div>
-          </div>
-        </section>
+          </Card>
+        </aside>
 
         <section className="space-y-4">
-          <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="text-sm font-semibold text-slate-200">results</div>
-              <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+          <Card
+            title="document"
+            subtitle={active ? active.name : "no note selected"}
+            right={
+              active ? (
+                <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <Pill title="runtime (ms)">
+                    <span className="font-mono tabular-nums">{typeof active.meta?.ms === "number" ? active.meta.ms : "—"}</span>
+                    <span className="ml-1 text-slate-500">ms</span>
+                  </Pill>
+                  <Pill title="extractions">
+                    <span className="font-mono tabular-nums">{filteredExtractions.length}</span>
+                  </Pill>
+                </div>
+              ) : null
+            }
+          >
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <input className="ui-input" placeholder="search span / term / cui" value={query} onChange={(e) => setQuery(e.target.value)} />
+                <Button variant="ghost" disabled={!query.trim().length} onClick={() => setQuery("")}>
+                  clear
+                </Button>
+              </div>
+
+              <div className="rounded-lg border border-white/10 bg-slate-950/25 p-3">
                 {active ? (
-                  <>
-                    <span>{active.name}</span>
-                    {typeof active.meta?.ms === "number" ? <span>· {active.meta.ms} ms</span> : null}
-                    {typeof active.meta?.count === "number" ? <span>· {active.meta.count} rows</span> : null}
-                  </>
+                  <pre className="whitespace-pre-wrap font-mono text-xs leading-6 text-slate-100">
+                    {segments.map((seg, idx) => {
+                      if (!seg.extraction) return <span key={idx}>{seg.text}</span>;
+                      const e = seg.extraction;
+                      const key = extractionKey(e);
+                      const isSelected = selectedKey === key;
+                      return (
+                        <mark
+                          key={idx}
+                          className={cx(
+                            "rounded px-1 py-0.5 transition-colors",
+                            groupMarkClass(e.semantic_group as SemanticGroup),
+                            isSelected ? "ring-2 ring-sky-200/70" : "",
+                          )}
+                          onClick={() => setSelectedKey(key)}
+                          title={`${e.preferred_term} (${e.cui})`}
+                        >
+                          {seg.text}
+                          <span className="ml-1 align-top text-[10px] font-semibold uppercase tracking-wide text-white/90">
+                            <span className={cx("rounded px-1 py-0.5", groupBadgeClass(e.semantic_group as SemanticGroup))}>{e.semantic_group}</span>
+                            <span className={cx("ml-1 rounded px-1 py-0.5", assertionBadgeClass(e.assertion))}>{e.assertion}</span>
+                          </span>
+                        </mark>
+                      );
+                    })}
+                  </pre>
                 ) : (
-                  <span>no note selected</span>
+                  <div className="text-sm text-slate-400">no note selected.</div>
                 )}
               </div>
             </div>
-
-            <div className="mt-3 grid gap-3 md:grid-cols-2">
-              <div className="rounded-lg border border-slate-800 bg-slate-950/40 p-3">
-                <div className="text-xs font-semibold text-slate-300">filters</div>
-                <div className="mt-2 space-y-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {availableAssertions.map((a) => (
-                      <FilterChip
-                        key={a}
-                        active={assertionFilter[a]}
-                        label={`${a} (${counts.byAssertion[a] ?? 0})`}
-                        className={assertionBadgeClass(a)}
-                        onClick={() =>
-                          setAssertionFilter((prev) => ({ ...prev, [a]: !prev[a] }))
-                        }
-                      />
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2">
-                    {availableGroups.map((g) => (
-                      <FilterChip
-                        key={g}
-                        active={groupFilter[g] !== false}
-                        label={`${g} (${counts.byGroup[g] ?? 0})`}
-                        className={groupBadgeClass(g as SemanticGroup)}
-                        onClick={() => setGroupFilter((prev) => ({ ...prev, [g]: prev[g] === false }))}
-                      />
-                    ))}
-                  </div>
-
-                  <input
-                    className="w-full rounded-md border border-slate-800 bg-slate-950/60 px-2 py-1 text-sm text-slate-100 outline-none focus:border-slate-600"
-                    placeholder="search span / term / cui"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-slate-800 bg-slate-950/40 p-3">
-                <div className="text-xs font-semibold text-slate-300">selection</div>
-                <div className="mt-2 text-sm text-slate-200">
-                  {selected ? (
-                    <div className="space-y-2">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className={groupBadgeClass(selected.semantic_group as SemanticGroup)}>
-                          {selected.semantic_group}
-                        </span>
-                        <span className={assertionBadgeClass(selected.assertion)}>{selected.assertion}</span>
-                        <span className="rounded-md border border-slate-800 bg-slate-950/60 px-2 py-1 text-xs text-slate-300">
-                          {selected.subject}
-                        </span>
-                      </div>
-                      <div className="font-mono text-xs text-slate-300">
-                        {selected.start}–{selected.end}
-                      </div>
-                      <div className="text-sm font-semibold">{selected.text}</div>
-                      <div className="text-sm text-slate-300">{selected.preferred_term}</div>
-                      <div className="text-sm text-slate-300">
-                        <span className="font-mono">{selected.cui}</span>{" "}
-                        <span className="text-slate-500">·</span> score {selected.score.toFixed(3)}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="text-sm text-slate-400">
-                      click a highlighted span or table row to see details.
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
-            <div className="text-sm font-semibold text-slate-200">highlight</div>
-            <div className="mt-3 h-72 overflow-auto rounded-lg border border-slate-800 bg-slate-950/60 p-3 font-mono text-sm leading-6 text-slate-100">
-              {active ? (
-                <pre className="whitespace-pre-wrap">
-                  {segments.map((seg, idx) => {
-                    if (!seg.extraction) return <span key={idx}>{seg.text}</span>;
-                    const e = seg.extraction;
-                    const key = extractionKey(e);
-                    const selected = selectedKey === key;
-                    return (
-                      <mark
-                        key={idx}
-                        className={[
-                          "rounded px-1 py-0.5",
-                          groupMarkClass(e.semantic_group as SemanticGroup),
-                          selected ? "ring-2 ring-white/70" : "",
-                        ].join(" ")}
-                        onClick={() => setSelectedKey(key)}
-                        title={`${e.preferred_term} (${e.cui})`}
-                      >
-                        {seg.text}
-                        <span className="ml-1 align-top text-[10px] font-semibold uppercase tracking-wide text-white/90">
-                          <span className={["rounded px-1 py-0.5", groupBadgeClass(e.semantic_group as SemanticGroup)].join(" ")}>
-                            {e.semantic_group}
-                          </span>
-                          <span className={["ml-1 rounded px-1 py-0.5", assertionBadgeClass(e.assertion)].join(" ")}>
-                            {e.assertion}
-                          </span>
-                        </span>
-                      </mark>
-                    );
-                  })}
-                </pre>
-              ) : (
-                <div className="text-sm text-slate-400">no note selected.</div>
-              )}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4">
-            <div className="flex items-center justify-between">
-              <div className="text-sm font-semibold text-slate-200">table</div>
-              <div className="text-xs text-slate-400">{active ? `${filteredExtractions.length} shown` : ""}</div>
-            </div>
-            <div className="mt-3 h-72 overflow-auto rounded-lg border border-slate-800 bg-slate-950/60">
-              <table className="w-full border-collapse text-left text-sm">
-                <thead className="sticky top-0 bg-slate-950/90 text-xs text-slate-300">
-                  <tr>
-                    <th className="px-3 py-2">span</th>
-                    <th className="px-3 py-2">cui</th>
-                    <th className="px-3 py-2">term</th>
-                    <th className="px-3 py-2">score</th>
-                    <th className="px-3 py-2">assertion</th>
-                    <th className="px-3 py-2">group</th>
-                  </tr>
-                </thead>
-                <tbody className="text-slate-100">
-                  {active ? (
-                    filteredExtractions.map((e) => {
-                      const key = extractionKey(e);
-                      const selected = selectedKey === key;
-                      return (
-                        <tr
-                          key={key}
-                          className={[
-                            "cursor-pointer border-t border-slate-900/60 hover:bg-slate-900/40",
-                            selected ? "bg-slate-900/60" : "",
-                          ].join(" ")}
-                          onClick={() => setSelectedKey(key)}
-                        >
-                          <td className="px-3 py-2 font-mono text-xs text-slate-200">{e.text}</td>
-                          <td className="px-3 py-2 font-mono text-xs text-slate-300">{e.cui}</td>
-                          <td className="px-3 py-2 text-slate-200">{e.preferred_term}</td>
-                          <td className="px-3 py-2 font-mono text-xs text-slate-300">{e.score.toFixed(3)}</td>
-                          <td className="px-3 py-2">
-                            <span className={assertionBadgeClass(e.assertion)}>{e.assertion}</span>
-                          </td>
-                          <td className="px-3 py-2">
-                            <span className={groupBadgeClass(e.semantic_group as SemanticGroup)}>{e.semantic_group}</span>
-                          </td>
-                        </tr>
-                      );
-                    })
-                  ) : (
-                    <tr>
-                      <td className="px-3 py-3 text-slate-400" colSpan={6}>
-                        no note selected.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          </Card>
         </section>
+
+        <aside className="space-y-4">
+          <Card
+            title="extractions"
+            subtitle={active ? `${filteredExtractions.length} shown · ${active.extractions.length} total` : "no note selected"}
+            right={
+              results.length ? (
+                <div className="flex items-center gap-2">
+                  <Button variant="secondary" onClick={() => downloadCsv(results)}>
+                    <DownloadSimple size={16} />
+                    csv
+                  </Button>
+                  <Button variant="secondary" onClick={() => downloadXlsx(results)}>
+                    <DownloadSimple size={16} />
+                    xlsx
+                  </Button>
+                </div>
+              ) : null
+            }
+          >
+            <div className="space-y-3">
+              <div className="grid gap-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  {availableAssertions.map((a) => (
+                    <button
+                      key={a}
+                      type="button"
+                      className={cx(
+                        "rounded-md border px-2 py-1 text-[11px] font-semibold uppercase tracking-wide transition-opacity",
+                        assertionFilter[a] ? "opacity-100" : "opacity-45",
+                        assertionBadgeClass(a),
+                      )}
+                      onClick={() => setAssertionFilter((prev) => ({ ...prev, [a]: !prev[a] }))}
+                      title="toggle assertion filter"
+                    >
+                      {a} <span className="font-mono tabular-nums text-white/70">{counts.byAssertion[a] ?? 0}</span>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2">
+                  {availableGroups.map((g) => (
+                    <button
+                      key={g}
+                      type="button"
+                      className={cx(
+                        "rounded-md border px-2 py-1 text-[11px] font-semibold uppercase tracking-wide transition-opacity",
+                        groupFilter[g] !== false ? "opacity-100" : "opacity-45",
+                        groupBadgeClass(g as SemanticGroup),
+                      )}
+                      onClick={() => setGroupFilter((prev) => ({ ...prev, [g]: prev[g] === false }))}
+                      title="toggle semantic group filter"
+                    >
+                      {g} <span className="font-mono tabular-nums text-white/70">{counts.byGroup[g] ?? 0}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <SelectionPanel selected={selected} />
+
+              <div className="h-[420px] overflow-auto rounded-lg border border-white/10 bg-slate-950/25">
+                <table className="w-full border-collapse text-left text-sm">
+                  <thead className="sticky top-0 bg-slate-950/90 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                    <tr>
+                      <th className="px-3 py-2">span</th>
+                      <th className="px-3 py-2">term</th>
+                      <th className="px-3 py-2">score</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-100">
+                    {active ? (
+                      filteredExtractions.map((e) => {
+                        const key = extractionKey(e);
+                        const isSelected = selectedKey === key;
+                        return (
+                          <tr
+                            key={key}
+                            className={cx("cursor-pointer border-t border-white/5 hover:bg-white/5", isSelected ? "bg-white/5" : "")}
+                            onClick={() => setSelectedKey(key)}
+                          >
+                            <td className="px-3 py-2 align-top">
+                              <div className="font-mono text-xs text-slate-200">{e.text}</div>
+                              <div className="mt-1 flex flex-wrap items-center gap-1">
+                                <span className={groupBadgeClass(e.semantic_group as SemanticGroup)}>{e.semantic_group}</span>
+                                <span className={assertionBadgeClass(e.assertion)}>{e.assertion}</span>
+                                <span className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-1 text-[11px] font-semibold text-slate-300">{e.subject}</span>
+                              </div>
+                            </td>
+                            <td className="px-3 py-2 align-top text-slate-200">
+                              <div className="text-sm font-semibold">{e.preferred_term}</div>
+                              <div className="mt-1 font-mono text-xs text-slate-400">{e.cui}</div>
+                            </td>
+                            <td className="px-3 py-2 align-top">
+                              <div className="font-mono text-xs tabular-nums text-slate-200">{e.score.toFixed(3)}</div>
+                              <div className="mt-2 h-1.5 w-24 rounded-full bg-slate-950/60">
+                                <div
+                                  className="h-1.5 rounded-full bg-sky-400/70"
+                                  style={{ width: `${Math.max(0, Math.min(1, e.score)) * 100}%` }}
+                                />
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      <tr>
+                        <td className="px-3 py-3 text-slate-400" colSpan={3}>
+                          no note selected.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Card>
+        </aside>
       </main>
     </div>
   );
-}
-
-function clamp01(v: string): number {
-  const n = Number(v);
-  if (!Number.isFinite(n)) return 0.55;
-  return Math.max(0, Math.min(1, n));
-}
-
-function clampInt(v: string, lo: number, hi: number): number {
-  const n = Math.floor(Number(v));
-  if (!Number.isFinite(n)) return lo;
-  return Math.max(lo, Math.min(hi, n));
 }
 
 function extractionKey(e: ConceptExtraction): string {
@@ -508,40 +595,107 @@ function extractionKey(e: ConceptExtraction): string {
 
 function hydrateGroupFilter(prev: Record<string, boolean>, extractions: ConceptExtraction[]): Record<string, boolean> {
   const out = { ...prev };
-  for (const e of extractions) {
-    if (!(e.semantic_group in out)) out[e.semantic_group] = true;
-  }
+  for (const e of extractions) if (!(e.semantic_group in out)) out[e.semantic_group] = true;
   return out;
 }
 
-function Toggle(props: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+function StatusPill(props: { apiOk: null | { ok: boolean; loaded: boolean } }) {
+  if (!props.apiOk) return <Pill>checking api…</Pill>;
+  if (!props.apiOk.ok) {
+    return (
+      <Pill className="border-rose-400/20 bg-rose-600/12 text-rose-100" title="api offline">
+        <span className="mr-2 inline-block h-2 w-2 rounded-full bg-rose-300" />
+        api offline
+      </Pill>
+    );
+  }
+  if (!props.apiOk.loaded) {
+    return (
+      <Pill className="border-amber-400/20 bg-amber-600/12 text-amber-100" title="api running, model not loaded yet">
+        <span className="mr-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
+        loading model
+      </Pill>
+    );
+  }
   return (
-    <label className="flex items-center gap-2 text-sm text-slate-300">
-      <input
-        type="checkbox"
-        checked={props.checked}
-        onChange={(e) => props.onChange(e.target.checked)}
-        className="h-4 w-4 rounded border-slate-700 bg-slate-950 text-sky-500"
-      />
-      {props.label}
-    </label>
+    <Pill className="border-emerald-400/20 bg-emerald-600/12 text-emerald-100" title="api ready">
+      <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-300" />
+      ready
+    </Pill>
   );
 }
 
-function FilterChip(props: { active: boolean; label: string; className: string; onClick: () => void }) {
+function SelectionPanel(props: { selected: ConceptExtraction | null }) {
+  const e = props.selected;
+  if (!e) {
+    return <div className="rounded-lg border border-white/10 bg-slate-950/25 px-3 py-3 text-sm text-slate-400">click a highlight or a row to inspect it.</div>;
+  }
   return (
-    <button
-      className={[
-        "rounded-md border px-2 py-1 text-xs font-semibold",
-        props.active ? "border-white/10" : "border-slate-800 opacity-50",
-        props.className,
-      ].join(" ")}
-      onClick={props.onClick}
-      type="button"
-    >
-      {props.label}
-    </button>
+    <div className="rounded-lg border border-white/10 bg-slate-950/25 px-3 py-3">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">selection</div>
+          <div className="mt-1 truncate text-sm font-semibold text-slate-100">{e.text}</div>
+          <div className="mt-0.5 truncate text-sm text-slate-300">{e.preferred_term}</div>
+        </div>
+        <Button
+          variant="ghost"
+          onClick={() => void navigator.clipboard.writeText(`${e.text}\t${e.cui}\t${e.preferred_term}`)}
+        >
+          <Copy size={16} />
+          copy
+        </Button>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <span className={groupBadgeClass(e.semantic_group as SemanticGroup)}>{e.semantic_group}</span>
+        <span className={assertionBadgeClass(e.assertion)}>{e.assertion}</span>
+        <span className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-1 text-[11px] font-semibold text-slate-300">{e.subject}</span>
+        <span className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-1 font-mono text-[11px] tabular-nums text-slate-300">
+          {e.start}–{e.end}
+        </span>
+      </div>
+
+      <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+        <div className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-2">
+          <div className="ui-label">cui</div>
+          <div className="mt-1 flex items-center justify-between gap-2">
+            <div className="min-w-0 truncate font-mono tabular-nums text-slate-200">{e.cui}</div>
+            <button
+              type="button"
+              className="rounded-md border border-white/10 bg-slate-950/55 px-2 py-1 text-[11px] font-semibold text-slate-200 hover:bg-slate-950/75"
+              onClick={() => void navigator.clipboard.writeText(e.cui)}
+              title="copy cui"
+            >
+              copy
+            </button>
+          </div>
+        </div>
+        <div className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-2">
+          <div className="ui-label">type</div>
+          <div className="mt-1 font-mono tabular-nums text-slate-200">{e.tui}</div>
+          <div className="mt-0.5 truncate text-slate-400">{e.semantic_type}</div>
+        </div>
+        <div className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-2">
+          <div className="ui-label">score</div>
+          <div className="mt-1 font-mono tabular-nums text-slate-200">{e.score.toFixed(3)}</div>
+          <div className="mt-0.5 font-mono tabular-nums text-slate-400">rerank {e.rerank_score.toFixed(3)}</div>
+        </div>
+        <div className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-2">
+          <div className="ui-label">normalized</div>
+          <div className="mt-1 truncate font-mono text-slate-200">{e.normalized_text}</div>
+          <div className="mt-0.5 truncate font-mono text-slate-400">{e.expanded_text}</div>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default App;
+function clamp(n: number, min: number, max: number): number {
+  if (!Number.isFinite(n)) return min;
+  return Math.max(min, Math.min(max, n));
+}
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
+}

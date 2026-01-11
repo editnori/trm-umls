@@ -36,7 +36,7 @@ export interface ConceptExtraction {
   temporality: string | null;
   start: number;
   end: number;
-  candidates: any[] | null;
+  candidates: unknown[] | null;
 }
 
 export interface ExtractOptions {
@@ -51,7 +51,7 @@ export interface ExtractOptions {
 
 export interface ExtractResponse {
   extractions: ConceptExtraction[];
-  meta: Record<string, any>;
+  meta: Record<string, unknown>;
 }
 
 export interface NoteIn {
@@ -64,12 +64,12 @@ export interface ExtractBatchItem {
   id: string;
   name: string;
   extractions: ConceptExtraction[];
-  meta: Record<string, any>;
+  meta: Record<string, unknown>;
 }
 
 export interface ExtractBatchResponse {
   results: ExtractBatchItem[];
-  meta: Record<string, any>;
+  meta: Record<string, unknown>;
 }
 
 export interface NoteResult {
@@ -77,6 +77,5 @@ export interface NoteResult {
   name: string;
   text: string;
   extractions: ConceptExtraction[];
-  meta: Record<string, any>;
+  meta: Record<string, unknown>;
 }
-

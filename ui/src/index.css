@@ -4,6 +4,15 @@
 
 :root {
   color-scheme: dark;
+  --bg: 2 6 23; /* slate-950-ish */
+  --surface: 6 10 27;
+  --surface-2: 9 14 35;
+  --border: 35 41 62;
+  --text: 241 245 249;
+  --muted: 148 163 184;
+  --faint: 100 116 139;
+  --accent: 56 189 248; /* sky-400 */
+  --danger: 244 63 94;
 }
 
 html,
@@ -14,9 +23,84 @@ body,
 
 body {
   margin: 0;
-  @apply bg-slate-950 text-slate-50 antialiased;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  @apply text-sky-300 hover:text-sky-200;
+  color: rgb(var(--accent));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: rgba(var(--accent), 0.22);
+}
+
+@layer components {
+  .ui-card {
+    @apply rounded-xl border bg-slate-900/20;
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  .ui-card-header {
+    @apply flex items-start justify-between gap-3 px-4 py-3;
+  }
+
+  .ui-card-body {
+    @apply px-4 pb-4;
+  }
+
+  .ui-label {
+    @apply text-[11px] font-semibold uppercase tracking-wide;
+    color: rgb(var(--faint));
+  }
+
+  .ui-input {
+    @apply w-full rounded-lg border bg-slate-950/50 px-3 py-2 text-sm outline-none transition-colors;
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  .ui-input:focus {
+    border-color: rgba(var(--accent), 0.45);
+    box-shadow: 0 0 0 3px rgba(var(--accent), 0.14);
+  }
+
+  .ui-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors;
+  }
+
+  .ui-button-primary {
+    background: rgba(var(--accent), 0.95);
+    color: rgb(2 6 23);
+  }
+
+  .ui-button-primary:hover {
+    background: rgba(var(--accent), 0.86);
+  }
+
+  .ui-button-secondary {
+    @apply border bg-slate-950/40;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: rgb(var(--text));
+  }
+
+  .ui-button-secondary:hover {
+    @apply bg-slate-950/65;
+  }
+
+  .ui-button-ghost {
+    @apply bg-transparent;
+    color: rgb(var(--muted));
+  }
+
+  .ui-button-ghost:hover {
+    color: rgb(var(--text));
+    background: rgba(255, 255, 255, 0.04);
+  }
 }
