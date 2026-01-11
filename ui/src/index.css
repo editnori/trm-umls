@@ -192,6 +192,9 @@ body {
 .badge-PRESENT { background: #166534; }
 .badge-ABSENT { background: #b91c1c; }
 .badge-POSSIBLE { background: #a16207; }
+.badge-FAMILY { background: #7c3aed; }
+.badge-PATIENT { background: #0d7377; }
+.badge-OTHER { background: #525252; }
 
 /* Filter pills */
 .filter-pill {

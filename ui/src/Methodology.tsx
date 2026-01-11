@@ -3,6 +3,7 @@ import { extractSingle, getHealth } from "./api";
 import { cx } from "./components/cx";
 import { DEMO_EXTRACTIONS, DEMO_NOTE } from "./demo_data";
 import type { Candidate, ConceptExtraction, ExtractOptions } from "./types";
+import { buildSegmentsNonOverlapping } from "./ui_highlight";
 import paperRaw from "../../trm_umls/paper.md?raw";
 
 const DEFAULT_OPTIONS: ExtractOptions = {
@@ -449,64 +450,132 @@ function InteractiveDemo({
   api, statusLabel, usingLive, text, setText, options, busy, run,
   rows, selected, setSelected, selectedRow, candidates
 }: DemoProps) {
+  const segments = useMemo(() => buildSegmentsNonOverlapping(text, rows), [text, rows]);
+
   return (
     <section className="my-8 rounded border border-border bg-surface">
       <div className="flex items-center gap-2 border-b border-border px-4 py-2 text-[10px] uppercase tracking-wide text-muted">
         try it now
         <span className="text-faint">·</span>
-        <span className="normal-case text-[11px]">{statusLabel}</span>
+        <span className={cx(
+          "inline-flex items-center gap-1 normal-case text-[11px]",
+          api === "ready" ? "text-[var(--success)]" : api === "offline" ? "text-[var(--error)]" : "text-muted"
+        )}>
+          <span className={cx(
+            "w-1.5 h-1.5 rounded-full",
+            api === "ready" ? "bg-[var(--success)]" : api === "offline" ? "bg-[var(--error)]" : "bg-yellow-500"
+          )} />
+          {statusLabel}
+        </span>
         <button
           onClick={run}
-          disabled={busy}
-          className="ml-auto rounded px-2 py-1 text-[10px] text-muted hover:text-primary disabled:opacity-50"
+          disabled={busy || api !== "ready"}
+          className={cx(
+            "ml-auto rounded px-3 py-1 text-[10px] font-medium transition-colors",
+            api === "ready" 
+              ? "bg-primary text-[var(--bg-page)] hover:opacity-90" 
+              : "text-muted opacity-50 cursor-not-allowed"
+          )}
         >
           {busy ? "running…" : "run"}
         </button>
       </div>
 
-      <div className="p-4 bg-elevated">
-        <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">note text</div>
+      {/* Input textarea */}
+      <div className="p-4 bg-elevated border-b border-border">
+        <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">input</div>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={3}
-          className="w-full resize-none bg-transparent text-sm text-primary font-mono outline-none"
+          className="w-full resize-none bg-surface border border-border rounded p-3 text-sm text-primary font-mono outline-none focus:border-border-strong"
           spellCheck={false}
+          placeholder="paste clinical text…"
         />
-        <div className="mt-2 text-[10px] text-faint">
-          {usingLive ? "live api" : "demo output"} · threshold {options.threshold}
-        </div>
       </div>
 
-      <div className="border-t border-border p-4 bg-surface">
-        <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">
-          extractions ({rows.length})
+      {/* Highlighted output - NER style */}
+      <div className="p-4 bg-surface">
+        <div className="flex items-center justify-between mb-2">
+          <div className="text-[10px] font-semibold uppercase tracking-wide text-muted">
+            output ({rows.length} extractions)
+          </div>
+          <div className="text-[10px] text-faint">
+            {usingLive ? "live" : "demo"} · threshold {options.threshold}
+          </div>
         </div>
-        <div className="space-y-1">
-          {rows.map((r) => {
-            const key = rowKey(r);
-            const isSelected = selected === key;
-            return (
-              <button
-                key={key}
-                onClick={() => setSelected(key)}
-                className={cx(
-                  "w-full text-left px-2 py-1.5 rounded text-xs font-mono",
-                  isSelected ? "bg-elevated border border-border-strong" : "hover:bg-hover"
-                )}
-              >
-                <span className="text-primary">{r.text}</span>
-                <span className="text-muted ml-2">→ {r.cui}</span>
-                <span className={cx("ml-2", r.assertion === "ABSENT" ? "text-[var(--error)]" : "text-[var(--success)]")}>
-                  {r.assertion}
+        
+        {/* NER highlighted text */}
+        <div className="bg-elevated rounded border border-border p-4">
+          <div className="font-mono text-sm leading-7 text-primary whitespace-pre-wrap">
+            {segments.map((seg, idx) => {
+              if (!seg.extraction) return <span key={idx}>{seg.text}</span>;
+              const e = seg.extraction;
+              const key = rowKey(e);
+              const isSelected = selected === key;
+              
+              return (
+                <span
+                  key={idx}
+                  className={cx(
+                    "entity-mark",
+                    `entity-${e.semantic_group}`,
+                    isSelected && "selected"
+                  )}
+                  onClick={() => setSelected(key)}
+                  title={`${e.preferred_term} (${e.cui})`}
+                >
+                  {seg.text}
+                  <span className={cx("entity-badge", `badge-${e.semantic_group}`)}>
+                    {e.semantic_group}
+                  </span>
                 </span>
-                {r.subject === "FAMILY" && <span className="ml-2 text-[var(--warning)]">FAMILY</span>}
-              </button>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 
+      {/* Extraction list */}
+      {rows.length > 0 && (
+        <div className="border-t border-border p-4 bg-elevated">
+          <div className="text-[10px] font-semibold uppercase tracking-wide text-muted mb-2">
+            extractions
+          </div>
+          <div className="space-y-1 max-h-48 overflow-y-auto">
+            {rows.map((r) => {
+              const key = rowKey(r);
+              const isSelected = selected === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSelected(key)}
+                  className={cx(
+                    "w-full text-left px-3 py-2 rounded text-xs transition-colors",
+                    isSelected ? "bg-surface border border-border-strong" : "hover:bg-surface"
+                  )}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium text-primary">{r.text}</span>
+                    <span className="text-muted">→</span>
+                    <span className="text-muted truncate">{r.preferred_term}</span>
+                  </div>
+                  <div className="flex gap-1.5 mt-1">
+                    <span className={cx("entity-badge", `badge-${r.semantic_group}`)}>{r.semantic_group}</span>
+                    <span className={cx("entity-badge", `badge-${r.assertion}`)}>{r.assertion}</span>
+                    {r.subject === "FAMILY" && (
+                      <span className="entity-badge badge-FAMILY">FAMILY</span>
+                    )}
+                    <span className="text-[10px] font-mono text-faint ml-auto">{r.score.toFixed(3)}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Candidates table */}
       {selectedRow && candidates && candidates.length > 0 && (
         <div className="border-t border-border">
           <div className="px-4 py-2 text-[10px] font-semibold uppercase tracking-wide text-muted bg-surface">
@@ -539,9 +608,10 @@ function InteractiveDemo({
         </div>
       )}
 
+      {/* Offline message */}
       {api === "offline" && (
         <div className="border-t border-border bg-surface px-4 py-3 text-[11px] text-muted">
-          api offline. start with <span className="font-mono text-primary">python3 -m trm_umls.api</span>
+          api offline — showing demo output. start with <span className="font-mono text-primary">python3 -m trm_umls.api</span> for live extraction.
         </div>
       )}
     </section>
