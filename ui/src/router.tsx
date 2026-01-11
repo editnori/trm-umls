@@ -8,7 +8,7 @@ type Page = "app" | "methodology";
 
 function pageFromHash(): Page {
   const hash = window.location.hash.slice(1);
-  return hash === "methodology" ? "methodology" : "app";
+  return hash.startsWith("methodology") ? "methodology" : "app";
 }
 
 export default function Router() {
@@ -27,4 +27,3 @@ export default function Router() {
   if (page === "methodology") return <Methodology />;
   return <App />;
 }
-

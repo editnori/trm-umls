@@ -50,8 +50,8 @@ export default function Methodology() {
   const articleRef = useRef<HTMLDivElement | null>(null);
 
   const [introMd, restMd] = useMemo(() => splitPaper(paperRaw), []);
-  const introHtml = useMemo(() => renderMarkdown(introMd), [introMd]);
-  const restHtml = useMemo(() => renderMarkdown(restMd), [restMd]);
+  const introHtml = useMemo(() => patchAnchors(renderMarkdown(introMd)), [introMd]);
+  const restHtml = useMemo(() => patchAnchors(renderMarkdown(restMd)), [restMd]);
 
   useEffect(() => {
     let mounted = true;
@@ -88,6 +88,21 @@ export default function Methodology() {
     if (nodes.length === 0) return;
     mermaid.run({ nodes });
   }, [introHtml, restHtml]);
+
+  useEffect(() => {
+    const jump = () => {
+      const hash = window.location.hash.slice(1);
+      const parts = hash.split("/");
+      if (parts[0] !== "methodology") return;
+      const anchor = parts[1];
+      if (!anchor) return;
+      const el = document.getElementById(anchor);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    jump();
+    window.addEventListener("hashchange", jump);
+    return () => window.removeEventListener("hashchange", jump);
+  }, []);
 
   const apiLabel = useMemo(() => {
     if (api.kind === "checking") return "checking api";
@@ -142,7 +157,7 @@ export default function Methodology() {
         <div className="ml-auto flex items-center gap-3 text-[11px] text-muted">
           <a href="/" className="hover:text-primary">extractor</a>
           <span className="text-faint">·</span>
-          <a href="#abstract" className="hover:text-primary">paper</a>
+          <a href="#methodology/abstract" className="hover:text-primary">paper</a>
         </div>
       </header>
 
@@ -411,4 +426,8 @@ export default function Methodology() {
 
 function rowKey(r: ConceptExtraction): string {
   return `${r.start}:${r.end}:${r.cui}:${r.assertion}:${r.subject}`;
+}
+
+function patchAnchors(html: string): string {
+  return html.replace(/href="#([^"]+)"/g, 'href="#methodology/$1"');
 }
