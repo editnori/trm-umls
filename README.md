@@ -575,8 +575,8 @@ python3 -m trm_umls.api
 In a second terminal, start the vite ui:
 ```bash
 cd ui
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Open `http://localhost:5173`. The ui sends note text to the local api only.

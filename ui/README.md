@@ -19,8 +19,8 @@ Start the ui:
 
 ```bash
 cd ui
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Open `http://localhost:5173`.
@@ -32,10 +32,9 @@ By default the ui calls `http://127.0.0.1:8000`.
 You can override with:
 
 ```bash
-VITE_API_BASE=http://127.0.0.1:8000 npm run dev
+VITE_API_BASE=http://127.0.0.1:8000 bun run dev
 ```
 
 ## privacy
 
 This is intended to run locally. Do not point it at a remote api if your notes contain PHI.
-
