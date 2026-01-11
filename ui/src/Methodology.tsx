@@ -92,8 +92,8 @@ export default function Methodology() {
           <div key={i}>
             <Section content={section} />
             
-            {/* Interactive demo after system overview */}
-            {section.id === "2-system-overview" && (
+            {/* Interactive demo after output examples */}
+            {section.id === "3-what-the-system-outputs" && (
               <InteractiveDemo
                 api={api}
                 statusLabel={statusLabel}
@@ -111,17 +111,17 @@ export default function Methodology() {
               />
             )}
 
-            {/* Embedding space visual after "models and indexing" intro */}
-            {section.id === "3-models-and-indexing" && <EmbeddingSpaceVisual />}
+            {/* Embedding space visual after embeddings section */}
+            {section.id === "4-how-embeddings-cluster" && <EmbeddingSpaceVisual />}
 
-            {/* Recursive model visual */}
-            {section.id === "3-models-and-indexing" && <RecursiveModelVisual />}
+            {/* Recursive model visual after TRM encoder section */}
+            {section.id === "6-the-trm-encoder" && <RecursiveModelVisual />}
 
-            {/* Contrastive loss visual after training objective */}
-            {section.id === "4-training-objective" && <ContrastiveLossVisual />}
+            {/* Contrastive loss visual after training section */}
+            {section.id === "7-how-the-model-learns" && <ContrastiveLossVisual />}
 
-            {/* Rerank visual after linking and reranking */}
-            {section.id === "6-linking-and-reranking" && <RerankVisual />}
+            {/* Rerank visual after reranking section */}
+            {section.id === "9-how-reranking-works" && <RerankVisual />}
           </div>
         ))}
       </main>

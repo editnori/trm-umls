@@ -2,9 +2,11 @@
 
 date: 2026-01-10  
 repo: `Medgemma/trm_umls`  
-author: Dr Layth M Qassemf  
+author: Dr Layth M Qassem  
 
-## abstract
+---
+
+## 1. what is concept extraction
 
 trm-umls is a retrieval-based concept linker for clinical text. It turns short spans in a note (for example "htn", "chest pain", "albuterol") into UMLS concepts and returns a row per mention: the span, its character offsets, the selected CUI, the preferred term, the semantic type (TUI), and light context labels such as whether the mention is present vs absent and patient vs family.
 
@@ -12,61 +14,21 @@ At runtime, the model does not "know" UMLS. It only produces an embedding vector
 
 For review, extractions can be exported to xlsx with score heatmaps and basic color coding by semantic group and assertion. This supports quick clinician spot-checking and threshold tuning, and it helps define what a future gold-standard annotation set should contain.
 
-Suggested citation:
-
-Qassemf, Layth M. *trm-umls: a small embedding-distilled umls concept linker for clinical text*. 2026. Git repository.
-
-```bibtex
-@misc{qassemf2026trmumls,
-  author = {Qassemf, Layth M.},
-  title = {trm-umls: a small embedding-distilled umls concept linker for clinical text},
-  year = {2026},
-  howpublished = {Git repository},
-  note = {Accessed 2026-01-10},
-}
-```
-
-The diagram below is the whole pipeline in one picture:
-
-```mermaid
-flowchart LR
-  note[note text] --> spans[span proposals]
-  spans --> trm[TRM encoder]
-  trm --> vec[span embedding]
-  vec --> faiss[FAISS search<br/>over UMLS index]
-  faiss --> rerank[rerank + context rules]
-  rerank --> out[rows: span + CUI + labels]
-```
-
 ---
 
-## 0. motivation and design choices
+## 2. why build a concept extractor
 
 The goal was a small, fast concept linker that could run on modest hardware while covering the full UMLS concept space. Clinical workflows often require quick turnaround on concept extraction, whether for populating problem lists, flagging billing codes, or feeding downstream analytics. A linker that requires expensive GPU clusters or minutes-per-note processing time does not fit these use cases.
 
-We started by asking whether a large medical language model could be compressed to a few million parameters while retaining its concept-linking ability. The candidate was google/medgemma-4b-it, a multi-billion parameter model trained on medical text.
+Clinical NLP has mature tools for concept linking. cTAKES, developed at Mayo Clinic, uses rule-based dictionary matching with a Java/UIMA stack and includes full scope parsing for negation. MetaMap from NLM provides comprehensive coverage but runs slowly and requires local installation. CLAMP from UT Houston offers a clinical NLP pipeline useful for research. QuickUMLS provides fast approximate string matching but trades accuracy for speed.
 
-Aggressive pruning of such models typically destroys the learned representations. Even when the pruned model still runs, it loses the subtle distinctions between similar concepts that clinical use requires. More fundamentally, concept linking is a retrieval problem. The linker must choose from over one million UMLS concepts, each representing a distinct medical idea. Generation-based approaches ("write the correct CUI") are slower, harder to control, and harder to debug than retrieval. Retrieval provides stable candidates and consistent scoring, which makes evaluation tractable.
+These systems share a pattern: they match text against explicit synonym lists. If "HTN" is not in the dictionary, it will not match "hypertensive disease". Adding abbreviations means maintaining synonym tables.
 
-This mismatch between generative models and retrieval needs led to a pivot. Instead of compressing a generative model, the project builds a small embedder that makes retrieval work well.
+Embedding retrieval works differently. When you embed "HTN", "hypertension", "high blood pressure", and "elevated BP", they all cluster together in the same vector space. No explicit synonym list is required. The model learned that these terms mean similar things.
+
+This mismatch between rule-based matching and embedding retrieval led to trm-umls. Instead of maintaining synonym dictionaries, the project builds a small embedder that places clinical text near the right UMLS concepts.
 
 One decision shaped the rest of the architecture: pick a single strong biomedical embedding space, embed the entire UMLS concept universe into that space once, and train a small model to project clinical text into the same space.
-
-```mermaid
-flowchart LR
-  subgraph offline [Build Once]
-    umls[UMLS concepts] --> teacher[SapBERT teacher]
-    teacher --> vectors[768-dim vectors]
-    vectors --> index[FAISS index]
-  end
-  subgraph online [Run Per Note]
-    text[clinical text] --> student[TRM student]
-    student --> query[query vector]
-    query --> search[FAISS search]
-    index --> search
-    search --> cui[matched CUI]
-  end
-```
 
 This creates a clean separation between heavy offline work and fast online inference. Offline, the system parses UMLS, generates concept embeddings, builds the FAISS index, and optionally creates silver training labels from clinical notes. Online, the system embeds a text span, queries FAISS, reranks candidates, and returns the best match. The small model is easy to reason about because it is not itself a concept database. It is an adapter that translates text into coordinates.
 
@@ -80,7 +42,7 @@ The third alternative was using a large language model to label spans or choose 
 
 ---
 
-## 1. problem statement
+## 3. what the system outputs
 
 Retrieval solves the "one million concepts" problem, but it forces an output contract. This section defines the row that trm-umls returns for each mention and the constraints that shaped that choice.
 
@@ -127,37 +89,11 @@ Terms used below:
 
 ---
 
-## 2. system overview
+## 4. how embeddings cluster
 
 The architecture separates heavy offline preparation from lightweight online inference. This separation means that expensive operations like embedding millions of concepts happen once, while per-note processing stays fast.
 
 Read the system as two phases. Offline work builds the concept store and the index. Online work runs per note and produces the extracted rows.
-
-```mermaid
-flowchart TD
-  subgraph offline [Offline: Build Artifacts]
-    direction TB
-    parse[Parse UMLS] --> embed[Embed 1.16M concepts]
-    embed --> faiss[Build FAISS index]
-    notes[Clinical notes] --> ner[NER span proposals]
-    ner --> link[Link spans to CUIs]
-    link --> silver[Silver training pairs]
-    silver --> train[Train TRM student]
-  end
-  
-  subgraph online [Online: Per-Note Inference]
-    direction TB
-    input[Note text] --> split[Split into mentions]
-    split --> expand[Expand abbreviations]
-    expand --> trm[Embed with TRM]
-    trm --> search[FAISS top-k search]
-    search --> rerank[Rerank candidates]
-    rerank --> output[Structured extractions]
-  end
-  
-  train --> trm
-  faiss --> search
-```
 
 The offline phase runs occasionally and produces durable artifacts. It parses UMLS to extract concepts and their synonyms. It embeds each concept using the teacher model. It builds the FAISS index over those embeddings. Optionally, it runs NER teachers over clinical notes to propose spans, links those spans to CUIs, and creates silver training pairs.
 
@@ -238,11 +174,9 @@ Two things matter in practice.
 
 Assertion matters as much as the CUI. "Denies chest pain" and "denies shortness of breath" should not populate a problem list, even though the underlying concepts are detected.
 
-Disambiguation is the other half of the job. UMLS contains many closely related concepts, and "hypertension" can legitimately map to multiple nearby entries. When the top candidates are near-ties, trm-umls uses reranking (section 6) to prefer more clinically typical choices, and it is also why a small gold set is still needed (see improvement roadmap).
+Disambiguation is the other half of the job. UMLS contains many closely related concepts, and "hypertension" can legitimately map to multiple nearby entries. When the top candidates are near-ties, trm-umls uses reranking (section 9) to prefer more clinically typical choices, and it is also why a small gold set is still needed (see improvement roadmap).
 
 Clinical notes contain many text fragments that look like medical terms but are not. Section headers like "ASSESSMENT" or "PLAN" would match concepts if embedded directly. Table fragments, field labels, and placeholder text would generate false positives. For that reason, trm-umls applies conservative precision filters before embedding:
-
-The pipeline includes conservative filters applied before embedding:
 
 | filter | catches | example |
 |---|---|---|
@@ -255,34 +189,15 @@ These filters are not the final word on precision. They exist to keep the retrie
 
 ---
 
-## 3. models and indexing
+## 5. the teacher space
 
 With the embedding space fixed, the index becomes the single source of truth for concept lookup. Everything downstream depends on the quality of that space.
 
-At inference time, two artifacts do almost all the work: the TRM encoder produces vectors, and FAISS retrieves the nearest concepts. The rest of the system is bookkeeping around spans, filtering, and context labels.
-
-**the embedding space concept.** Think of the embedding space as a 768-dimensional room where every medical concept has a location. Concepts with similar meanings sit near each other. "Hypertension", "high blood pressure", and "elevated BP" all cluster together, while "hypotension" sits in a different region.
-
-```
-                    ┌─────────────────────────────────────┐
-                    │        768-dimensional space        │
-                    │                                     │
-                    │    [hypertension] ·                 │
-                    │    [high blood pressure] ·          │
-                    │    [elevated BP] ·                  │
-                    │                                     │
-                    │                    · [hypotension]  │
-                    │                    · [low BP]       │
-                    │                                     │
-                    │  · [diabetes]                       │
-                    │  · [DM]                             │
-                    │  · [diabetes mellitus]              │
-                    └─────────────────────────────────────┘
-```
+Think of the embedding space as a 768-dimensional room where every medical concept has a location. Concepts with similar meanings sit near each other. "Hypertension", "high blood pressure", and "elevated BP" all cluster together, while "hypotension" sits in a different region.
 
 When a new text span arrives, the student model projects it into this same space. The nearest concept becomes the predicted link. If a clinician writes "HTN" in a note, the student projects it near the "hypertension" cluster, and FAISS returns C0020538.
 
-**teacher model.** The teacher model defines the coordinate system for all downstream operations. We tested two candidates on a controlled retrieval task:
+The teacher model defines the coordinate system for all downstream operations. We tested two candidates on a controlled retrieval task:
 
 | teacher model | hit@1 | hit@5 | MRR |
 |---|---:|---:|---:|
@@ -293,7 +208,11 @@ SapBERT placed the correct CUI at rank 1 for 95.4% of queries. This means when y
 
 The pipeline standardizes on `cambridgeltl/SapBERT-from-PubMedBERT-fulltext` with 768-dimensional output.
 
-**student encoder.** The student model is intentionally small. The checkpoint contains 9,864,198 parameters compared to SapBERT's 110 million. This 10x reduction in size comes with minimal accuracy loss because the student only needs to *project* into the existing space, not *define* it.
+---
+
+## 6. the trm encoder
+
+The student model is intentionally small. The checkpoint contains 9,864,198 parameters compared to SapBERT's 110 million. This 10x reduction in size comes with minimal accuracy loss because the student only needs to *project* into the existing space, not *define* it.
 
 | parameter | value |
 |---|---|
@@ -308,32 +227,11 @@ The architecture uses recursive computation. The same transformer block applies 
 
 If you are not used to the term "recursive model", the simplest way to read this is: the encoder reuses the same small set of weights several times. Instead of 12 separate layers with 12 separate parameter sets, it runs one layer repeatedly. That keeps the model small while still allowing multiple rounds of attention and refinement.
 
-```mermaid
-flowchart TD
-  input[tokens] --> embed[token + position embeddings]
-  embed --> block[TRM Block]
-  block --> |"repeat 12x"| block
-  block --> pool[pool hidden states]
-  pool --> proj[project to 768-d]
-  proj --> output[embedding vector]
-```
-
 Two optional classification heads predict assertion (PRESENT/ABSENT/POSSIBLE) and subject (PATIENT/FAMILY/OTHER).
-
-**FAISS index.** Concept vectors are stored in a FAISS IVF index for fast approximate nearest-neighbor search. With 1.16 million concepts, exact search would be slow. The IVF index partitions the space into 2048 clusters and searches only the 32 most relevant clusters at query time.
-
-| index parameter | value |
-|---|---:|
-| vectors | 1,164,238 |
-| dimensions | 768 |
-| clusters (nlist) | 2048 |
-| clusters searched (nprobe) | 32 |
-
-This trades a small amount of accuracy for significant speed. In practice, if the correct concept ranks #1 with exact search, it still ranks #1 with IVF search in nearly all cases. The few edge cases where ranking differs are handled by reranking.
 
 ---
 
-## 4. training objective
+## 7. how the model learns
 
 The student model learns to map text spans into the teacher embedding space. When a span embeds close to its correct concept vector, FAISS retrieval succeeds.
 
@@ -362,19 +260,6 @@ Temperature scaling ($\tau = 0.07$) sharpens the distribution, making the model 
 
 **silver label pipeline.** Gold labels from human annotators were not available. To train on clinical text, the system generates silver labels automatically.
 
-```mermaid
-flowchart LR
-  notes[Clinical notes] --> ner1[NER teacher 1]
-  notes --> ner2[NER teacher 2]
-  ner1 --> vote[Vote on spans]
-  ner2 --> vote
-  vote --> spans[Agreed spans]
-  spans --> embed[Embed with SapBERT]
-  embed --> search[FAISS search]
-  search --> filter[Filter by similarity > 0.6]
-  filter --> silver[Silver pairs]
-```
-
 The pipeline uses multiple NER models that vote on span proposals. Spans that multiple teachers agree on receive higher confidence. Each span embeds in the teacher space and queries FAISS. Candidates are filtered by minimum similarity (0.60) and minimum lexical overlap (0.10).
 
 The training set mixes 1 million UMLS synonym pairs with 34,000 silver pairs from notes. The UMLS pairs anchor the embedding space with clean data, while the silver pairs teach the model to handle real clinical language.
@@ -395,75 +280,22 @@ The heads are trained on a small labeled set. The checkpoint reports perfect acc
 
 ---
 
-## 5. evaluation
+## 8. how retrieval works
 
-Evaluation proceeds in layers. Early tests check whether the embedding space behaves correctly in isolation. Later tests check what the full pipeline does on clinical-like text.
+Concept vectors are stored in a FAISS IVF index for fast approximate nearest-neighbor search. With 1.16 million concepts, exact search would be slow. The IVF index partitions the space into 2048 clusters and searches only the 32 most relevant clusters at query time.
 
-The order matters. If the teacher embedding space cannot retrieve the right CUI for a synonym, the student will not fix that. If the student does not match the teacher on held-out pairs, end-to-end behavior tends to be unstable.
-
-```mermaid
-flowchart TD
-  bakeoff[Teacher bakeoff] --> choose[Choose SapBERT]
-  choose --> train[Train student]
-  train --> distill{Distillation metric improved?}
-  distill --> |yes| e2e[End-to-end note eval]
-  distill --> |no| tune[Tune training]
-  tune --> train
-  e2e --> gold[Build gold set]
-  gold --> calibrate[Threshold calibration]
-```
-
-**teacher bakeoff.** Before training the student, the teacher space must be validated. The bakeoff sampled 20,000 concepts from UMLS and 20,000 synonym queries. Each query is a synonym text, and the target is the correct CUI from that restricted universe.
-
-| teacher model | hit@1 | hit@5 | MRR |
-|---|---:|---:|---:|
-| SapBERT (CLS pooling) | 0.9537 | 0.9751 | 0.9625 |
-| BGE-M3 (dense) | 0.8853 | 0.9259 | 0.9016 |
-
-SapBERT placed the correct CUI at rank 1 for 95.4% of queries and in the top 5 for 97.5%. When you embed the synonym "high blood pressure" and search the index, the concept "Hypertensive disease" (C0020538) appears at rank 1 nineteen times out of twenty. That hit rate sets the ceiling for the student model.
-
-**distillation metric.** The distillation metric measures how well the student matches teacher embeddings. Mean cosine similarity between student predictions and teacher targets on a held-out set provides the primary signal.
-
-$$
-\text{mean\_sim} = \frac{1}{N} \sum_{i=1}^{N} \frac{f(x_i) \cdot t(y_i)}{\|f(x_i)\| \cdot \|t(y_i)\|}
-$$
-
-where $f(x_i)$ is the student's embedding for span $x_i$ and $t(y_i)$ is the teacher's embedding for concept $y_i$.
-
-| checkpoint | epoch | mean similarity | interpretation |
-|---|---:|---:|---|
-| baseline | 4 | 0.4983 | student vectors point roughly in the right direction |
-| latest | 10 | 0.7062 | student vectors closely align with teacher |
-
-Mean similarity improved from 0.50 to 0.71 between epochs 4 and 10. This is the clearest signal that training is working. When this metric stalls, downstream retrieval rarely improves.
-
-Clinically, a similarity of 0.71 means the student's embedding for "chest pain" points in nearly the same direction as SapBERT's embedding for the "Chest Pain" concept. When you search FAISS, the correct concept consistently appears in the top results.
-
-**end-to-end note evaluation.** End-to-end evaluation measures what the full pipeline produces on real clinical text. The test set was 200 admission notes processed with the full FAISS index. A fixed threshold of 0.55 filtered low-confidence extractions.
-
-| run | extracted rows | notes with extractions | mean score |
-|---|---:|---:|---:|
-| baseline (epoch 4) | 2,731 | 147/200 | 0.5773 |
-| latest (epoch 10) | 10,331 | 181/200 | 0.6493 |
-
-The latest checkpoint extracted nearly four times as many concept mentions. Coverage improved from 147 to 181 notes with at least one extraction. Mean similarity scores rose from 0.58 to 0.65.
-
-These are behavior metrics, not accuracy metrics. Higher row counts indicate stronger embedding signal. The model is more confident about more spans. Without a gold set, we cannot distinguish true positives from false positives. The increase from 2,731 to 10,331 rows means the improved model finds medical concepts where the baseline missed them, but it may also find false positives where the baseline correctly abstained.
-
-**runtime profile.** Runtime was measured on a synthetic 200-line note using an NVIDIA RTX 3070.
-
-| step | time |
+| index parameter | value |
 |---|---:|
-| load model + index (cold start) | 32.46 s |
-| extract 200-line note | 3.19 s |
-| rows extracted | 412 |
-| throughput | 129 rows/s |
+| vectors | 1,164,238 |
+| dimensions | 768 |
+| clusters (nlist) | 2048 |
+| clusters searched (nprobe) | 32 |
 
-Cold start cost is dominated by index loading. Once loaded, throughput scales with the number of mention candidates. For a service deployment, the index loads once at startup and amortizes across many requests.
+This trades a small amount of accuracy for significant speed. In practice, if the correct concept ranks #1 with exact search, it still ranks #1 with IVF search in nearly all cases. The few edge cases where ranking differs are handled by reranking.
 
 ---
 
-## 6. linking and reranking
+## 9. how reranking works
 
 FAISS retrieval returns raw similarity scores. Reranking adjusts these scores based on additional signals that improve clinical accuracy.
 
@@ -533,126 +365,63 @@ These biases are small enough that a high-similarity match from any category sti
 
 ---
 
-## 7. running the system
+## 10. results
 
-**installation**
+Evaluation proceeds in layers. Early tests check whether the embedding space behaves correctly in isolation. Later tests check what the full pipeline does on clinical-like text.
 
-```bash
-cd trm_umls
-pip install -r requirements.txt
-```
+The order matters. If the teacher embedding space cannot retrieve the right CUI for a synonym, the student will not fix that. If the student does not match the teacher on held-out pairs, end-to-end behavior tends to be unstable.
 
-Required artifacts (local, not committed):
-- `trm_umls/checkpoints/model.pt`
-- `trm_umls/data/embeddings/umls_flat.index`
-- `trm_umls/data/embeddings/embedding_metadata.json`
-- `trm_umls/data/umls/tui_mappings.json`
+**teacher bakeoff.** Before training the student, the teacher space must be validated. The bakeoff sampled 20,000 concepts from UMLS and 20,000 synonym queries. Each query is a synonym text, and the target is the correct CUI from that restricted universe.
 
-**basic usage**
+| teacher model | hit@1 | hit@5 | MRR |
+|---|---:|---:|---:|
+| SapBERT (CLS pooling) | 0.9537 | 0.9751 | 0.9625 |
+| BGE-M3 (dense) | 0.8853 | 0.9259 | 0.9016 |
 
-**Smoke test:**
-```bash
-python3 trm_umls/pipeline.py --smoke
-```
+SapBERT placed the correct CUI at rank 1 for 95.4% of queries and in the top 5 for 97.5%. When you embed the synonym "high blood pressure" and search the index, the concept "Hypertensive disease" (C0020538) appears at rank 1 nineteen times out of twenty. That hit rate sets the ceiling for the student model.
 
-**Process text:**
-```bash
-python3 trm_umls/pipeline.py --text "Patient denies HTN. Family history of DM."
-```
+**distillation metric.** The distillation metric measures how well the student matches teacher embeddings. Mean cosine similarity between student predictions and teacher targets on a held-out set provides the primary signal.
 
-**JSON output:**
-```bash
-python3 trm_umls/pipeline.py --text "Patient denies HTN." --json
-```
+$$
+\text{mean\_sim} = \frac{1}{N} \sum_{i=1}^{N} \frac{f(x_i) \cdot t(y_i)}{\|f(x_i)\| \cdot \|t(y_i)\|}
+$$
 
-**web ui (highlighted spans + filtering)**
+where $f(x_i)$ is the student's embedding for span $x_i$ and $t(y_i)$ is the teacher's embedding for concept $y_i$.
 
-Start the local api (loads the model + index once):
-```bash
-python3 -m trm_umls.api
-```
+| checkpoint | epoch | mean similarity | interpretation |
+|---|---:|---:|---|
+| baseline | 4 | 0.4983 | student vectors point roughly in the right direction |
+| latest | 10 | 0.7062 | student vectors closely align with teacher |
 
-In a second terminal, start the vite ui:
-```bash
-cd ui
-bun install
-bun run dev
-```
+Mean similarity improved from 0.50 to 0.71 between epochs 4 and 10. This is the clearest signal that training is working. When this metric stalls, downstream retrieval rarely improves.
 
-Open `http://localhost:5173`. The ui sends note text to the local api only.
+Clinically, a similarity of 0.71 means the student's embedding for "chest pain" points in nearly the same direction as SapBERT's embedding for the "Chest Pain" concept. When you search FAISS, the correct concept consistently appears in the top results.
 
-**Batch a notes directory + export to xlsx (review workflow):**
-```bash
-python3 trm_umls/scripts/eval_notes_dir.py \
-  --notes-dir path/to/notes \
-  --limit-files 10 \
-  --output-jsonl trm_umls/runs/sample_eval.jsonl \
-  --checkpoint trm_umls/checkpoints/model.pt \
-  --device cuda \
-  --threshold 0.55 \
-  --clinical-rerank \
-  --dedupe
+**end-to-end note evaluation.** End-to-end evaluation measures what the full pipeline produces on real clinical text. The test set was 200 admission notes processed with the full FAISS index. A fixed threshold of 0.55 filtered low-confidence extractions.
 
-python3 trm_umls/scripts/export_eval_jsonl_to_xlsx.py \
-  --eval-jsonl trm_umls/runs/sample_eval.jsonl \
-  --output-xlsx trm_umls/runs/sample_eval.xlsx \
-  --no-context
-```
+| run | extracted rows | notes with extractions | mean score |
+|---|---:|---:|---:|
+| baseline (epoch 4) | 2,731 | 147/200 | 0.5773 |
+| latest (epoch 10) | 10,331 | 181/200 | 0.6493 |
 
-**key parameters**
+The latest checkpoint extracted nearly four times as many concept mentions. Coverage improved from 147 to 181 notes with at least one extraction. Mean similarity scores rose from 0.58 to 0.65.
 
-| flag | default | effect |
-|---|---:|---|
-| `--threshold` | 0.55 | minimum similarity to keep extraction |
-| `--top-k` | 10 | FAISS candidates per span |
-| `--clinical-rerank` | off | enable semantic biases |
-| `--no-dedupe` | off | keep duplicate mentions |
+These are behavior metrics, not accuracy metrics. Higher row counts indicate stronger embedding signal. The model is more confident about more spans. Without a gold set, we cannot distinguish true positives from false positives. The increase from 2,731 to 10,331 rows means the improved model finds medical concepts where the baseline missed them, but it may also find false positives where the baseline correctly abstained.
 
-**programmatic use**
+**runtime profile.** Runtime was measured on a synthetic 200-line note using an NVIDIA RTX 3070.
 
-```python
-from trm_umls.pipeline import TRMUMLSPipeline
+| step | time |
+|---|---:|
+| load model + index (cold start) | 32.46 s |
+| extract 200-line note | 3.19 s |
+| rows extracted | 412 |
+| throughput | 129 rows/s |
 
-# Load once at startup
-pipe = TRMUMLSPipeline.load("trm_umls/checkpoints/model.pt")
-
-# Process multiple notes
-for note in notes:
-    extractions = pipe.extract(
-        note.text,
-        threshold=0.55,
-        clinical_rerank=True
-    )
-    for ext in extractions:
-        print(f"{ext.text} -> {ext.cui} ({ext.preferred_term})")
-```
+Cold start cost is dominated by index loading. Once loaded, throughput scales with the number of mention candidates. For a service deployment, the index loads once at startup and amortizes across many requests.
 
 ---
 
-## 8. comparison with cTAKES
-
-cTAKES is a mature clinical NLP system developed at Mayo Clinic. It represents a different architectural approach to concept linking.
-
-| aspect | cTAKES | trm-umls |
-|---|---|---|
-| matching | rule-based dictionary | embedding retrieval |
-| runtime | Java/UIMA | Python/PyTorch/FAISS |
-| negation | full scope parsing | light head + rules |
-| synonym coverage | explicit synonym lists | learned similarity |
-
-**Strengths of embedding retrieval:**
-
-Embedding retrieval matches synonym variants that string matching misses. "HTN", "hypertension", "high blood pressure", and "elevated BP" all cluster together in embedding space without explicit synonym lists. The Python stack is simpler to deploy than UIMA.
-
-**Strengths of cTAKES:**
-
-cTAKES has more complete negation and subject handling. Its sectioning logic understands clinical note structure. Years of rule refinement handle edge cases that a new system has not encountered.
-
----
-
-## 9. known limitations
-
-**failure patterns**
+## 11. limitations
 
 | pattern | example | cause |
 |---|---|---|
@@ -662,13 +431,11 @@ cTAKES has more complete negation and subject handling. Its sectioning logic und
 | negation scope | "no HTN, DM, or CAD" | only first item negated |
 | multi-mention split | "DM and HTN" → only one extracted | splitting failed |
 
-**what accuracy means without gold labels**
-
 The evaluation numbers earlier in this document are behavior metrics, not accuracy metrics. When the model extracts 10,331 rows instead of 2,731, we know it is finding more concepts, but we do not know what fraction are correct. A gold set is required to measure precision and recall.
 
 ---
 
-## 10. improvement roadmap
+## 12. next steps
 
 **gold set (highest priority)**
 
@@ -681,50 +448,3 @@ Sweep thresholds from 0.45 to 0.80 on a gold set. Plot precision versus recall. 
 **hard negatives**
 
 Hard negatives help the model distinguish near-miss concepts. Train with examples where "hypertension" must be distinguished from "hypotension" and "pulmonary hypertension" from "systemic hypertension".
-
----
-
-## appendix a: reproducibility commands
-
-**Run inference:**
-```bash
-python3 trm_umls/pipeline.py --smoke
-python3 trm_umls/pipeline.py --text "Patient denies HTN." --json
-```
-
-**Rebuild FAISS index:**
-```bash
-python3 trm_umls/scripts/build_faiss_index.py \
-  --embeddings trm_umls/data/embeddings_sapbert_full/umls_embeddings.npy \
-  --output trm_umls/data/embeddings_sapbert_full \
-  --index-type ivf --nlist 2048 --nprobe 32 --train-sample 200000
-```
-
-**Train new checkpoint:**
-```bash
-python3 trm_umls/train_multitask.py \
-  --embedding-dir trm_umls/data/embeddings_train \
-  --checkpoint-dir trm_umls/checkpoints \
-  --epochs 10 --batch-size 64 --max-length 64
-```
-
----
-
-## appendix b: data handling
-
-Clinical notes and derived artifacts require careful handling.
-
-- Do not commit clinical notes or files containing context windows
-- Treat any JSONL file in `trm_umls/runs/` as sensitive
-- Prefer storing only note identifiers, offsets, CUIs, and scores
-- When sharing errors for debugging, use synthetic text or redact spans
-
----
-
-## references
-
-[1] Liu, F., et al. Self-alignment pretraining for biomedical entity representations. arXiv:2010.11784.
-
-[2] Savova, G.K., et al. Mayo clinical text analysis and knowledge extraction system (cTAKES). JAMIA 2010.
-
-[3] National Library of Medicine. Unified Medical Language System (UMLS). Release 2025AA.
